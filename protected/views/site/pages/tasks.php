@@ -45,7 +45,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 
 <style type="text/css">
 	.breadcrumbs {
-		margin: 0 4px;
+		margin: 0 4px 8px;
 		padding: 0;
 	}
 	.breadcrumbs li {
@@ -137,25 +137,35 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 	#tagsList li {
 		margin: 5px 0 9px;
 		padding-left: 6px;
-	}
-	#tagsList li.active {
-		background: #eee;
-		border-radius: 6px;
-	}
-	#tagsList .name {
-		color: #0066CC;
-		/*text-decoration: underline;*/
 		cursor: pointer;
 	}
-	#tagsList .name:hover {
+	#tagsList li .name {
+		color: #0066CC;
+		/*text-decoration: underline;*/
+	}
+	#tagsList li:hover .name {
 		color: #0099ff;
 	}
 	#tagsList .count {
 		float: right;
-		padding: 1px 6px;
+		padding: 1px 6px 2px;
 		font-size: 0.8em;
 		color: #999;
 		background: #eee;
 		border-radius: 6px;
+	}
+	#tagsList li.active {
+		overflow: hidden;
+		/*background: #eee;*/
+		background: #0066CC;
+		border-radius: 5px;
+	}
+	#tagsList li.active .name {
+		color: white;
+	}
+	#tagsList li.active .count {
+		color: white;
+		background: #0099ff;
+		border-radius: 0px;
 	}
 </style>

@@ -240,3 +240,143 @@ REQUEST_URI=/tagtodo/index.php/api/tasks/24
 in /home/www/tagtodo/protected/controllers/ApiController.php (236)
 in /home/www/tagtodo/protected/controllers/ApiController.php (188)
 in /home/www/tagtodo/index.php (13)
+2012/04/21 20:13:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:18:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:18:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:19:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:19:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:19:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:19:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:20:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:20:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---
+2012/04/21 20:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('index')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/tagtodo/
+---

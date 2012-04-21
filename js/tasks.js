@@ -12,18 +12,11 @@ $(function(){
 		view: null,
 		_tags: null,
 		initialize: function(attr){
-			//console.log(this.getTags());
 			this.on('change:body', this.parseTags, this);
 			this.on('add', this.parseTags, this);
 			//this.on('all', function(e){
 			//	console.log(e, this);
 			//}, this);
-
-			//var task = this;
-			//console.log(this.get('body'), this.get('tags'),
-			//	_.map(task.tags, function(tag){
-			//		return tag.get('name');
-			//	}));
 		},
 		getTags: function(){
 			var task = this;
@@ -41,25 +34,37 @@ $(function(){
 			var task = this;
 			var oldTags = task.getTags();
 
-			task._tags = newTags;
-			//this.set('tags', _.pluck(newTags, 'id'));
-			this.set('tags', newTags.pluck('id'));
-
 			oldTags.each(function(tag){
-				/*if (_.indexOf(task.tags, tag) === -1) {
+				if (!newTags.get(tag.id)) {
+					//console.log('removeTask', tag);
 					tag.removeTask(task);
-				}*/
+				}
 			});
 			newTags.each(function(tag){
-				/*if (_.indexOf(oldTags, tag) === -1) {
-					if (!tag.isNew()) {
-						tag.addTask(task);
-					}
-				}*/
+				if (!oldTags.get(tag.id)) {
+					//console.log('addTask', tag);
+					tag.addTask(task);
+				}
 			});
+
+			task._tags = newTags;
+			this.set('tags', newTags.pluck('id'));
+			this.save();
 		},
-		parseTags: function(event){
-			var newTags = [];
+		parseTags: function(){
+			var task = this;
+			var newTags = new Tags;
+
+			var createTagsTotal = 0;
+			var createTagsSuccess = 0;
+			var fireSet = function(){
+				if (createTagsTotal === 0 || createTagsSuccess === createTagsTotal) {
+					task.setTags(newTags);
+					return true;
+				}
+				return false;
+			};
+
 			_.each(this.get('body').match(/#(\w+)/g), function(hashTag){
 				var name = hashTag.substr(1);
 				if (name.length === 0)
@@ -70,10 +75,18 @@ $(function(){
 				if (tag) {
 					newTags.add(tag);
 				} else {
-					newTags.add(tags.create({name: name, count: 1}));
+					createTagsTotal++;
+					tags.create({name: name}, {
+						wait: true,
+						success: function(tag){
+							newTags.add(tag);
+							createTagsSuccess++;
+							fireSet();
+						}
+					});
 				}
 			});
-			this.setTags(newTags);
+			fireSet();
 		}
 	});
 
@@ -90,13 +103,25 @@ $(function(){
 			tasks: []
 		},
 		addTask: function(task){
-			var tasks = this.get('tasks');
-			tasks.push(task.id);
-			this.set('tasks', tasks);
+			//console.log('addTask', task.id);
+			var tagTasks = this.get('tasks');
+			console.log(tagTasks, task.id)
+			if (_.indexOf(tagTasks, task.id) === -1) {
+				tagTasks.push(task.id);
+				this.set('tasks', tagTasks);
+				this.trigger('change:tasks');
+			}
 		},
 		removeTask: function(task){
-			var tasks = this.get('tasks');
-			this.set('tasks', _.without(tasks, task.id));
+			var tagTasks = this.get('tasks');
+			tagTasks = _.without(tagTasks, task.id);
+			if (tagTasks.length === 0) {
+				this.destroy();
+				return false;
+			} else {
+				this.set('tasks', tagTasks);
+				return true;
+			}
 		}
 	});
 
@@ -105,7 +130,7 @@ $(function(){
 		url: scriptUrl+'/api/tags'
 	});
 
-	var TaskTags = Backbone.Model.extend({
+	/*var TaskTags = Backbone.Model.extend({
 		idAttribute: 'id',
 		defaults: {
 			task_id: 0,
@@ -116,7 +141,7 @@ $(function(){
 	var TaskTagsList = Backbone.Collection.extend({
 		model: TaskTags,
 		url: scriptUrl+'/api/taskTags'
-	});
+	});*/
 
 	var TaskView = Backbone.View.extend({
 		template: _.template($('#taskTemplate').html()),
@@ -194,7 +219,7 @@ $(function(){
 		},
 		initialize: function(){
 			this.breadcrumbs = {};
-			this.breadcrumbs.showAll = this.$el.find('.showAll').hide();
+			this.breadcrumbs.showAll = this.$el.find('.showAll');
 			this.breadcrumbs.tag = this.$el.find('.tag').hide();
 			this.tasksList = this.$el.find('ul.tasks');
 
@@ -219,7 +244,7 @@ $(function(){
 			tasks.each(function(task){
 				task.view.$el.show();
 			}, this);
-			this.breadcrumbs.showAll.hide();
+			//this.breadcrumbs.showAll.hide();
 			this.breadcrumbs.tag.hide();
 
 			tagsView.$el.children('li').removeClass('active');
@@ -229,7 +254,7 @@ $(function(){
 			tasks.each(function(task){
 				task.view.$el.toggle(_.indexOf(ids, task.id) !== -1);
 			}, this);
-			this.breadcrumbs.showAll.show();
+			//this.breadcrumbs.showAll.show();
 			this.breadcrumbs.tag.text('#'+tag.get('name')).show();
 		}
 	});
@@ -238,20 +263,22 @@ $(function(){
 		template: _.template($('#tagTemplate').html()),
 		tagName: 'li',
 		events: {
-			'click .name': 'filter'
+			'click': 'filter'
 		},
 		initialize: function(){
 			this.model.on('destroy', this.remove, this);
-			//this.model.on('change:count', this.updateCount, this);
+			//this.model.on('add', this.updateCount, this);
+			this.model.on('change:tasks', this.updateCount, this);
 		},
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
-			//this.count = this.$el.find('.count');
+			this.count = this.$el.find('.count');
 			return this;
 		},
-		/*updateCount: function(){
-			this.count.html(this.model.get('count'));
-		},*/
+		updateCount: function(){
+			console.log('updateCount', this.model);
+			this.count.html(this.model.get('tasks').length);
+		},
 		filter: function(){
 			/*var tasksList = [];
 			_.each(this.model.get('tasks'), function(task_id){
@@ -271,6 +298,7 @@ $(function(){
 			tags.on('reset', this.addAll, this);
 		},
 		addOne: function(tag) {
+			//console.log('addOne', tag.id);
 			var view = new TagView({model: tag});
 			this.$el.append(view.render().el);
 		},
@@ -281,7 +309,7 @@ $(function(){
 
 	var tasks = new Tasks;
 	var tags = new Tags;
-	var taskTags = new TaskTagsList;
+	//var taskTags = new TaskTagsList;
 
 	var tagsView = new TagsView({
 		el: $("#tagsList")
@@ -289,7 +317,7 @@ $(function(){
 
 	var tasksView = null;
 
-	taskTags.fetch();
+	//taskTags.fetch();
 	tags.fetch({
 		success: function(collection, resp){
 			tasksView = new TasksView({

@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'TagTodo',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -37,6 +37,7 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
+				array('site/page', 'pattern'=>'', 'defaultParams'=>array('view'=>'tasks')),
 				// REST patterns
 				array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
 				array('api/view', 'pattern'=>'api/<model:\w+>/<id:\w+>', 'verb'=>'GET'),
