@@ -1,0 +1,242 @@
+2012/04/15 21:20:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/15 21:20:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/15 22:31:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/15 22:31:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/15 22:56:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tsks".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tsks')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tsks')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/tsks')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/tsks
+---
+2012/04/15 22:57:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tasks".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tasks')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tasks')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/tasks')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/tasks
+---
+2012/04/15 22:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "taks" was not found.' in /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('taks')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('page')
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/site/page?view=taks
+---
+2012/04/15 23:36:23 [error] [php] Invalid argument supplied for foreach() (/home/www/tagtodo/protected/controllers/ApiController.php:96)
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): ApiController->runAction()
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): ApiController->runActionWithFilters()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): ApiController->run()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /home/www/tagtodo/index.php(13): CWebApplication->run()
+REQUEST_URI=/api/tasks
+in /home/www/tagtodo/protected/controllers/ApiController.php (96)
+in /home/www/tagtodo/index.php (13)
+2012/04/16 00:04:15 [error] [exception.CException] exception 'CException' with message 'ApiController and its behaviors do not have a method or closure named "sendResponse".' in /home/www/libs/yii-1.1.10.r3566/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/www/tagtodo/protected/controllers/ApiController.php(166): CComponent->__call('sendResponse', Array)
+#1 /home/www/tagtodo/protected/controllers/ApiController.php(166): ApiController->sendResponse(200, '{"id":"3","stat...')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionUpdate()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('update')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/update')
+#8 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/www/tagtodo/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/api/tasks/3
+HTTP_REFERER=http://tagtodo.local/site/page?view=tasks
+---
+2012/04/16 00:04:31 [error] [exception.CException] exception 'CException' with message 'ApiController and its behaviors do not have a method or closure named "sendResponse".' in /home/www/libs/yii-1.1.10.r3566/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/www/tagtodo/protected/controllers/ApiController.php(166): CComponent->__call('sendResponse', Array)
+#1 /home/www/tagtodo/protected/controllers/ApiController.php(166): ApiController->sendResponse(200, '{"id":"3","stat...')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionUpdate()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('update')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/update')
+#8 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/www/tagtodo/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/api/tasks/3
+HTTP_REFERER=http://tagtodo.local/site/page?view=tasks
+---
+2012/04/16 02:06:32 [error] [exception.CException] exception 'CException' with message 'ApiController and its behaviors do not have a method or closure named "sendResponse".' in /home/www/libs/yii-1.1.10.r3566/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/www/tagtodo/protected/controllers/ApiController.php(197): CComponent->__call('sendResponse', Array)
+#1 /home/www/tagtodo/protected/controllers/ApiController.php(197): ApiController->sendResponse(200, true)
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionDelete()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('delete')
+#7 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/delete')
+#8 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/www/tagtodo/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/api/tasks/5
+HTTP_REFERER=http://tagtodo.local/site/page?view=tasks
+---
+2012/04/20 00:24:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tags".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tags')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tags')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/tags/hgf')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tagtodo/index.php/api/tags/hgf
+HTTP_REFERER=http://owerq.dyndns.org/tagtodo/index.php/site/page?view=tasks
+---
+2012/04/20 00:24:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tags".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tags')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tags')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/tags/tag')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tagtodo/index.php/api/tags/tag
+HTTP_REFERER=http://owerq.dyndns.org/tagtodo/index.php/site/page?view=tasks
+---
+2012/04/20 00:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tags".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tags')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tags')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/tags/hello')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tagtodo/index.php/api/tags/hello
+HTTP_REFERER=http://owerq.dyndns.org/tagtodo/index.php/site/page?view=tasks
+---
+2012/04/20 00:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tags".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php:484
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(271): CController->missingAction('tags')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('tags')
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/tags/hello')
+#3 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/www/tagtodo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tagtodo/index.php/api/tags/hello
+HTTP_REFERER=http://owerq.dyndns.org/tagtodo/index.php/site/page?view=tasks
+---
+2012/04/20 00:37:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/20 00:37:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/www/tagtodo/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/04/20 02:21:21 [error] [php] Undefined variable: msg (/home/www/tagtodo/protected/controllers/ApiController.php:180)
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): ApiController->runAction()
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): ApiController->runActionWithFilters()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): ApiController->run()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /home/www/tagtodo/index.php(13): CWebApplication->run()
+REQUEST_URI=/tagtodo/index.php/api/tasks/20
+in /home/www/tagtodo/protected/controllers/ApiController.php (180)
+in /home/www/tagtodo/index.php (13)
+2012/04/20 12:50:06 [error] [exception.CException] exception 'CException' with message 'Property "Task.attibutes" is not defined.' in /home/www/libs/yii-1.1.10.r3566/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/db/ar/CActiveRecord.php(144): CComponent->__get('attibutes')
+#1 /home/www/tagtodo/protected/models/Task.php(108): CActiveRecord->__get('attibutes')
+#2 /home/www/tagtodo/protected/controllers/ApiController.php(56): Task->toJSON()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionList()
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): CController->run('list')
+#8 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController('api/list')
+#9 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/www/tagtodo/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tagtodo/index.php/api/tasks
+HTTP_REFERER=http://owerq.dyndns.org/tagtodo/index.php/site/page?view=tasks
+---
+2012/04/21 01:47:48 [error] [php] Missing argument 1 for Task::afterSave(), called in /home/www/libs/yii-1.1.10.r3566/framework/db/ar/CActiveRecord.php on line 1063 and defined (/home/www/tagtodo/protected/models/Task.php:126)
+Stack trace:
+#0 /home/www/tagtodo/protected/controllers/ApiController.php(187): Task->save()
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionUpdate()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): ApiController->runAction()
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): ApiController->runActionWithFilters()
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): ApiController->run()
+#6 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/www/tagtodo/index.php(13): CWebApplication->run()
+REQUEST_URI=/tagtodo/index.php/api/tasks/24
+in /home/www/tagtodo/protected/models/Task.php (126)
+in /home/www/tagtodo/protected/controllers/ApiController.php (187)
+in /home/www/tagtodo/index.php (13)
+2012/04/21 01:50:33 [error] [php] Cannot modify header information - headers already sent by (output started at /home/www/tagtodo/protected/models/Task.php:129) (/home/www/tagtodo/protected/controllers/ApiController.php:236)
+Stack trace:
+#0 /home/www/libs/yii-1.1.10.r3566/framework/web/actions/CInlineAction.php(50): ApiController->actionUpdate()
+#1 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(287): ApiController->runAction()
+#3 /home/www/libs/yii-1.1.10.r3566/framework/web/CController.php(266): ApiController->runActionWithFilters()
+#4 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(276): ApiController->run()
+#5 /home/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#6 /home/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /home/www/tagtodo/index.php(13): CWebApplication->run()
+REQUEST_URI=/tagtodo/index.php/api/tasks/24
+in /home/www/tagtodo/protected/controllers/ApiController.php (236)
+in /home/www/tagtodo/protected/controllers/ApiController.php (188)
+in /home/www/tagtodo/index.php (13)
