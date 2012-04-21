@@ -14,23 +14,24 @@ $(function(){
 		initialize: function(attr){
 			this.on('change:body', this.parseTags, this);
 			this.on('add', this.parseTags, this);
-			//this.on('all', function(e){
-			//	console.log(e, this);
-			//}, this);
+			/*this.on('all', function(e){
+				console.log(e, this);
+			}, this);*/
 		},
 		getTags: function(){
 			var task = this;
 			if (task._tags === null) {
-				//task._tags = [];
 				task._tags = new Tags;
 				_.each(this.get('tags'), function(tag_id){
-					//task._tags.push(tags.get(tag_id));
 					task._tags.add(tags.get(tag_id));
 				});
 			}
 			return task._tags;
 		},
 		setTags: function(newTags){
+			if (this.isNew())
+				return false;
+
 			var task = this;
 			var oldTags = task.getTags();
 
@@ -49,7 +50,10 @@ $(function(){
 
 			task._tags = newTags;
 			this.set('tags', newTags.pluck('id'));
-			this.save();
+			this.save(null, {
+				silent: true,
+				success: function(){}
+			});
 		},
 		parseTags: function(){
 			var task = this;
@@ -103,9 +107,7 @@ $(function(){
 			tasks: []
 		},
 		addTask: function(task){
-			//console.log('addTask', task.id);
 			var tagTasks = this.get('tasks');
-			console.log(tagTasks, task.id)
 			if (_.indexOf(tagTasks, task.id) === -1) {
 				tagTasks.push(task.id);
 				this.set('tasks', tagTasks);
@@ -113,15 +115,13 @@ $(function(){
 			}
 		},
 		removeTask: function(task){
+			//console.log('removeTask', this.url(), this, task);
 			var tagTasks = this.get('tasks');
 			tagTasks = _.without(tagTasks, task.id);
-			if (tagTasks.length === 0) {
+			if (tagTasks.length === 0)
 				this.destroy();
-				return false;
-			} else {
+			else
 				this.set('tasks', tagTasks);
-				return true;
-			}
 		}
 	});
 
@@ -129,19 +129,6 @@ $(function(){
 		model: Tag,
 		url: scriptUrl+'/api/tags'
 	});
-
-	/*var TaskTags = Backbone.Model.extend({
-		idAttribute: 'id',
-		defaults: {
-			task_id: 0,
-			tag_id: 0
-		}
-	});
-
-	var TaskTagsList = Backbone.Collection.extend({
-		model: TaskTags,
-		url: scriptUrl+'/api/taskTags'
-	});*/
 
 	var TaskView = Backbone.View.extend({
 		template: _.template($('#taskTemplate').html()),
@@ -152,13 +139,14 @@ $(function(){
 			//'keyup .body': 'changeBody',
 			'click .delete': 'delete'
 		},
-		saveTimeout: null,
+		//saveTimeout: null,
+		initialize: function(){
+			this.model.on('destroy', this.destroy, this);
+		},
 		render: function(){
 			this.$el.html(this.template(this.model.toJSON()));
 			this.status = this.$el.find('.status');
 			this.body = this.$el.find('.body');
-			//this.$el.toggleClass('done', this.model.get('done'));
-			//this.input = this.$('.edit');
 			return this;
 		},
 		changeStatus: function(){
@@ -191,9 +179,16 @@ $(function(){
 			e.preventDefault();
 
 			if (confirm('Delete?')) {
-				this.$el.remove();
+				//this.$el.remove();
 				this.model.destroy();
 			}
+		},
+		destroy: function(){
+			var task = this.model;
+			this.model.getTags().each(function(tag){
+				tag.removeTask(task);
+			});
+			this.remove();
 		}
 	});
 
@@ -207,7 +202,11 @@ $(function(){
 		submit: function(e){
 			e.preventDefault();
 
-			var task = this.collection.create({body: this.body.val()});
+			var task = this.collection.create({
+				body: this.body.val()
+			}, {
+				wait: true
+			});
 			//task.parseTags();
 			this.body.val('');
 		}
@@ -225,7 +224,6 @@ $(function(){
 
 			tasks.on('add', this.addOne, this);
 			tasks.on('reset', this.addAll, this);
-			tasks.fetch();
 
 			this.newTask = new TaskFormView({
 				el: this.$el.find('form.newTask'),
@@ -244,17 +242,18 @@ $(function(){
 			tasks.each(function(task){
 				task.view.$el.show();
 			}, this);
-			//this.breadcrumbs.showAll.hide();
+
 			this.breadcrumbs.tag.hide();
 
 			tagsView.$el.children('li').removeClass('active');
 		},
 		filterByTag: function(tag) {
 			var ids = tag.get('tasks');
+
 			tasks.each(function(task){
 				task.view.$el.toggle(_.indexOf(ids, task.id) !== -1);
 			}, this);
-			//this.breadcrumbs.showAll.show();
+
 			this.breadcrumbs.tag.text('#'+tag.get('name')).show();
 		}
 	});
@@ -276,17 +275,10 @@ $(function(){
 			return this;
 		},
 		updateCount: function(){
-			console.log('updateCount', this.model);
+			//console.log('updateCount', this.model);
 			this.count.html(this.model.get('tasks').length);
 		},
 		filter: function(){
-			/*var tasksList = [];
-			_.each(this.model.get('tasks'), function(task_id){
-				console.log(tasks.get(task_id));
-				tasksList.push(tasks.get(task_id).toJSON());
-			});
-			console.log(tasksList);*/
-			//tasks.reset(tasksList);
 			this.$el.addClass('active').siblings().removeClass('active');
 			tasksView.filterByTag(this.model);
 		}
@@ -307,22 +299,19 @@ $(function(){
 		}
 	});
 
-	var tasks = new Tasks;
 	var tags = new Tags;
-	//var taskTags = new TaskTagsList;
+	var tasks = new Tasks;
 
 	var tagsView = new TagsView({
 		el: $("#tagsList")
 	});
+	var tasksView = new TasksView({
+		el: $("#tasks")
+	});
 
-	var tasksView = null;
-
-	//taskTags.fetch();
 	tags.fetch({
 		success: function(collection, resp){
-			tasksView = new TasksView({
-				el: $("#tasks")
-			});
+			tasks.fetch();
 		}
 	});
 

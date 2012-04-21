@@ -158,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 		overflow: hidden;
 		/*background: #eee;*/
 		background: #0066CC;
-		border-radius: 5px;
+		border-radius: 3px;
 	}
 	#tagsList li.active .name {
 		color: white;
