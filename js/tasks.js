@@ -1,5 +1,3 @@
-//Backbone.emulateJSON = true;
-
 $(function(){
 
 	var Task = Backbone.Model.extend({
@@ -14,9 +12,7 @@ $(function(){
 		initialize: function(attr){
 			this.on('change:body', this.parseTags, this);
 			this.on('add', this.parseTags, this);
-			/*this.on('all', function(e){
-				console.log(e, this);
-			}, this);*/
+			this.on('destroy', this.clearTags, this);
 		},
 		getTags: function(){
 			var task = this;
@@ -37,13 +33,11 @@ $(function(){
 
 			oldTags.each(function(tag){
 				if (!newTags.get(tag.id)) {
-					//console.log('removeTask', tag);
 					tag.removeTask(task);
 				}
 			});
 			newTags.each(function(tag){
 				if (!oldTags.get(tag.id)) {
-					//console.log('addTask', tag);
 					tag.addTask(task);
 				}
 			});
@@ -60,16 +54,16 @@ $(function(){
 			var newTags = new Tags;
 
 			var createTagsTotal = 0;
-			var createTagsSuccess = 0;
+			var createTagsDone = 0;
 			var fireSet = function(){
-				if (createTagsTotal === 0 || createTagsSuccess === createTagsTotal) {
+				if (createTagsTotal === 0 || createTagsDone === createTagsTotal) {
 					task.setTags(newTags);
 					return true;
 				}
 				return false;
 			};
 
-			_.each(this.get('body').match(/#(\w+)/g), function(hashTag){
+			_.each(this.get('body').match(/#([^\s]+)/g), function(hashTag){
 				var name = hashTag.substr(1);
 				if (name.length === 0)
 					return;
@@ -80,17 +74,23 @@ $(function(){
 					newTags.add(tag);
 				} else {
 					createTagsTotal++;
-					tags.create({name: name}, {
+					tags.create({name: name, tasks: []}, {
 						wait: true,
 						success: function(tag){
 							newTags.add(tag);
-							createTagsSuccess++;
+							createTagsDone++;
 							fireSet();
 						}
 					});
 				}
 			});
 			fireSet();
+		},
+		clearTags: function(){
+			var task = this;
+			this.getTags().each(function(tag){
+				tag.removeTask(task);
+			});
 		}
 	});
 
@@ -115,7 +115,6 @@ $(function(){
 			}
 		},
 		removeTask: function(task){
-			//console.log('removeTask', this.url(), this, task);
 			var tagTasks = this.get('tasks');
 			tagTasks = _.without(tagTasks, task.id);
 			if (tagTasks.length === 0)
@@ -136,17 +135,15 @@ $(function(){
 		events: {
 			'change .status': 'changeStatus',
 			'change .body': 'changeBody',
-			//'keyup .body': 'changeBody',
 			'click .delete': 'delete'
 		},
-		//saveTimeout: null,
 		initialize: function(){
-			this.model.on('destroy', this.destroy, this);
+			this.model.on('destroy', this.remove, this);
 		},
 		render: function(){
 			this.$el.html(this.template(this.model.toJSON()));
-			this.status = this.$el.find('.status');
-			this.body = this.$el.find('.body');
+			this.status = this.$('.status');
+			this.body = this.$('.body');
 			return this;
 		},
 		changeStatus: function(){
@@ -159,36 +156,17 @@ $(function(){
 			});
 		},
 		changeBody: function(){
-			var model = this.model;
 			var body = this.body.val();
-
 			if (body != this.model.get('body')) {
-				//clearTimeout(this.saveTimeout);
-				//this.saveTimeout = setTimeout(function(){
-					model.save({
-						body: body
-					});
-				//}, 500);
-				/*this.model.save({
+				this.model.save({
 					body: body
-				});*/
-				//this.model.parseTags();
+				});
 			}
 		},
 		delete: function(e){
 			e.preventDefault();
-
-			if (confirm('Delete?')) {
-				//this.$el.remove();
+			if (confirm('Delete?'))
 				this.model.destroy();
-			}
-		},
-		destroy: function(){
-			var task = this.model;
-			this.model.getTags().each(function(tag){
-				tag.removeTask(task);
-			});
-			this.remove();
 		}
 	});
 
@@ -197,17 +175,17 @@ $(function(){
 			'submit': 'submit'
 		},
 		initialize: function(){
-			this.body = this.$el.find('.body');
+			this.body = this.$('.body');
 		},
 		submit: function(e){
 			e.preventDefault();
 
-			var task = this.collection.create({
+			this.collection.create({
 				body: this.body.val()
 			}, {
 				wait: true
 			});
-			//task.parseTags();
+
 			this.body.val('');
 		}
 	});
@@ -218,15 +196,15 @@ $(function(){
 		},
 		initialize: function(){
 			this.breadcrumbs = {};
-			this.breadcrumbs.showAll = this.$el.find('.showAll');
-			this.breadcrumbs.tag = this.$el.find('.tag').hide();
-			this.tasksList = this.$el.find('ul.tasks');
+			this.breadcrumbs.showAll = this.$('.showAll');
+			this.breadcrumbs.tag = this.$('.tag').hide();
+			this.tasksList = this.$('ul.tasks');
 
 			tasks.on('add', this.addOne, this);
 			tasks.on('reset', this.addAll, this);
 
 			this.newTask = new TaskFormView({
-				el: this.$el.find('form.newTask'),
+				el: this.$('form.newTask'),
 				collection: tasks
 			});
 		},
@@ -248,7 +226,14 @@ $(function(){
 			tagsView.$el.children('li').removeClass('active');
 		},
 		filterByTag: function(tag) {
-			var ids = tag.get('tasks');
+			var ids = tag.get('tasks'),
+				hashTag = '#'+tag.get('name'),
+				body = this.newTask.body;
+
+			if (body.val() === '')
+				body.val(hashTag+' ');
+			else
+				body.val(body.val().replace(/#([^\s]+)/, hashTag));
 
 			tasks.each(function(task){
 				task.view.$el.toggle(_.indexOf(ids, task.id) !== -1);
@@ -266,16 +251,14 @@ $(function(){
 		},
 		initialize: function(){
 			this.model.on('destroy', this.remove, this);
-			//this.model.on('add', this.updateCount, this);
 			this.model.on('change:tasks', this.updateCount, this);
 		},
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
-			this.count = this.$el.find('.count');
+			this.count = this.$('.count');
 			return this;
 		},
 		updateCount: function(){
-			//console.log('updateCount', this.model);
 			this.count.html(this.model.get('tasks').length);
 		},
 		filter: function(){
@@ -290,7 +273,6 @@ $(function(){
 			tags.on('reset', this.addAll, this);
 		},
 		addOne: function(tag) {
-			//console.log('addOne', tag.id);
 			var view = new TagView({model: tag});
 			this.$el.append(view.render().el);
 		},

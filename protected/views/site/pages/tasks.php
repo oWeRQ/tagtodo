@@ -75,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 	ul.tasks input.body,
 	form.newTask input.body {
 		padding: 3px 0;
-		width: 350px;
+		width: 400px;
 		border: none;
 		border-bottom: 1px solid #ddd;
 	}
@@ -119,6 +119,12 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 		border-bottom: 1px solid #c0c0c0;
 		border-right: 1px solid #c0c0c0;
 	}
+	form.newTask input.body {
+		color: #aaa;
+	}
+	form.newTask input.body:focus {
+		color: #3C3C3C;
+	}
 	form.newTask input.body:focus + .submit {
 		display: inline;
 	}
@@ -135,11 +141,16 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 		width: 100px;
 	}
 	#tagsList li {
-		margin: 5px 0 9px;
+		margin-bottom: 6px;
 		padding-left: 6px;
+		border-radius: 4px;
 		cursor: pointer;
 	}
 	#tagsList li .name {
+		display:inline-block;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		width:75px;
 		color: #0066CC;
 		/*text-decoration: underline;*/
 	}
@@ -148,17 +159,16 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/tasks.js')
 	}
 	#tagsList .count {
 		float: right;
-		padding: 1px 6px 2px;
+		padding: 3px 6px;
 		font-size: 0.8em;
 		color: #999;
 		background: #eee;
-		border-radius: 6px;
+		border-radius: 4px;
 	}
 	#tagsList li.active {
 		overflow: hidden;
 		/*background: #eee;*/
 		background: #0066CC;
-		border-radius: 3px;
 	}
 	#tagsList li.active .name {
 		color: white;

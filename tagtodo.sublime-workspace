@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"tasks",
+				"TasksView"
+			],
+			[
+				"Task",
+				"TaskTags"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"task",
+				"task_id"
+			],
+			[
 				"dis",
 				"display	display: inline"
 			],
@@ -36,58 +52,18 @@
 	"buffers":
 	[
 		{
+			"file": "js/backbone.js",
+			"settings":
+			{
+				"buffer_size": 53155,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "protected/views/site/pages/tasks.php",
 			"settings":
 			{
-				"buffer_size": 3229,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/work/glavmosstoy/markup/js/svg.js",
-			"settings":
-			{
-				"buffer_size": 363554,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/work/glavmosstoy/markup/css/main.css",
-			"settings":
-			{
-				"buffer_size": 87461,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/work/glavmosstoy/markup/js/object.js",
-			"settings":
-			{
-				"buffer_size": 20568,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_big.svg",
-			"settings":
-			{
-				"buffer_size": 361424,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/home/max/www/work/glavmosstoy/markup/object.html",
-			"settings":
-			{
-				"buffer_size": 74790,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/libs/aehlke-tag-it-d64a794/examples.html",
-			"settings":
-			{
-				"buffer_size": 9958,
+				"buffer_size": 4114,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,71 +71,7 @@
 			"file": "js/tasks.js",
 			"settings":
 			{
-				"buffer_size": 5104,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "protected/controllers/ApiController.php",
-			"settings":
-			{
-				"buffer_size": 9689,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php",
-			"settings":
-			{
-				"buffer_size": 30919,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php",
-			"settings":
-			{
-				"buffer_size": 17183,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/web/CUrlManager.php",
-			"settings":
-			{
-				"buffer_size": 28203,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "protected/config/main.php",
-			"settings":
-			{
-				"buffer_size": 2365,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "protected/migrations/m120415_172425_tags.php",
-			"settings":
-			{
-				"buffer_size": 352,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/backbone-relational.js",
-			"settings":
-			{
-				"buffer_size": 45647,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "protected/models/Task.php",
-			"settings":
-			{
-				"buffer_size": 2804,
+				"buffer_size": 6897,
 				"line_ending": "Unix"
 			}
 		}
@@ -167,9 +79,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 103.0,
 		"selected_items":
 		[
+			[
+				"disc",
+				"Package Control: Discover Packages"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -216,20 +132,35 @@
 	},
 	"file_history":
 	[
+		"/home/max/www/tagtodo/protected/controllers/ApiController.php",
+		"/home/max/www/tagtodo/protected/models/Task.php",
+		"/home/max/www/maincinema/protected/components/AdvancedRelationsBehavior.php",
+		"/home/max/www/tagtodo/protected/models/Tag.php",
+		"/home/max/www/libs/jquery-1.7.1.js",
+		"/home/max/www/tagtodo/protected/config/main.php",
+		"/home/max/www/libs/yii-1.1.10.r3566/framework/web/CUrlManager.php",
+		"/home/max/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php",
+		"/home/max/www/tagtodo/protected/views/layouts/main.php",
+		"/home/max/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php",
+		"/home/max/www/tagtodo/js/backbone-relational.js",
+		"/home/max/www/libs/yii-1.1.10.r3566/demos/blog/protected/data/schema.mysql.sql",
+		"/home/max/www/tagtodo/js/backbone.js",
+		"/home/max/www/libs/yii-1.1.10.r3566/framework/db/ar/CActiveRecord.php",
+		"/home/max/www/mokocrm/protected/controllers/LeadController.php",
+		"/home/max/www/tagtodo/protected/migrations/m120415_172425_tags.php",
+		"/home/max/www/libs/aehlke-tag-it-d64a794/examples.html",
+		"/home/max/www/work/glavmosstoy/markup/object.html",
+		"/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_big.svg",
+		"/home/max/www/work/glavmosstoy/markup/js/svg.js",
+		"/home/max/www/work/glavmosstoy/markup/css/main.css",
 		"/home/max/www/work/glavmosstoy/markup/js/object.js",
 		"/home/max/www/tagtodo/js/tag-it.js",
 		"/home/max/Download/Browser/jmechner-Prince-of-Persia-Apple-II-e942336/01 POP Source/Source/AUTO.S",
-		"/home/max/www/tagtodo/protected/models/Task.php",
-		"/home/max/www/tagtodo/protected/models/Tag.php",
 		"/home/max/www/tagtodo/js/tasks.js",
 		"/home/max/www/tagtodo/protected/controllers/TaskController.php",
-		"/home/max/www/tagtodo/protected/config/main.php",
-		"/home/max/www/tagtodo/protected/controllers/ApiController.php",
 		"/home/max/www/work/glavmosstoy/markup/js/main.js",
 		"/home/max/www/tagtodo/protected/migrations/m120415_172416_tasks.php",
-		"/home/max/www/tagtodo/js/backbone.js",
 		"/home/max/www/tagtodo/protected/views/site/pages/tasks",
-		"/home/max/www/tagtodo/protected/migrations/m120415_172425_tags.php",
 		"/home/max/www/tagtodo/protected/migrations/m120415_172435_tasks_tags.php",
 		"/home/max/www/tagtodo/protected/config/console.php",
 		"/home/max/www/tagtodo/protected/controllers/SiteController.php",
@@ -239,10 +170,8 @@
 		"/home/max/www/maincinema/.htaccess",
 		"/home/max/www/work/glavmosstoy/markup/index.html",
 		"/home/max/www/work/glavmosstoy/markup/city.html",
-		"/home/max/www/work/glavmosstoy/markup/object.html",
 		"/home/max/www/work/glavmosstoy/markup/property_registration.html",
 		"/home/max/www/work/glavmosstoy/markup/js/property_registration.js",
-		"/home/max/www/work/glavmosstoy/markup/css/main.css",
 		"/home/max/www/work/glavmosstoy/fw_export/object_centr_popup_zayavka.css",
 		"/home/max/Download/Torrents/MythBusters.S09E20 - Wet And Wild/MythBusters.S09E20 - Wet And Wild.HDTV.XviD-FQM.srt",
 		"/home/max/Dropbox/Docs/tekken_6.txt",
@@ -260,15 +189,12 @@
 		"/media/Neptune/Backup/git/www/.git/refs/remotes/origin/HEAD",
 		"/media/Neptune/Backup/git/www/.git/refs/remotes/origin/master",
 		"/home/max/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/max/www/work/glavmosstoy/markup/js/svg.js",
 		"/home/max/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/www/mojito/examples/getting-started-guide/part1/hello/index.js",
 		"/home/www/mojito/examples/getting-started-guide/part2/basic_yql/routes.json",
 		"/home/max/Drop/::거침없이 달려보자! 꿈꾸던 3D경마의 세계- 로얄더비를 찾아주셔서 감사합니다::_files/main.html",
 		"/media/Neptune/Pictures/Girls/Lazygirls/lazygirls_update.rb",
 		"/home/www/mojito/docs/topics/getting-started-guide/Part-2%3A-YQL-Data-Source.md",
-		"/home/max/www/libs/jquery-1.7.1.js",
-		"/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_big.svg",
 		"/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_small.svg",
 		"/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_small_fix.svg",
 		"/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_big_fix.svg",
@@ -333,17 +259,7 @@
 		"/home/max/.hgrc",
 		"/home/max/www/notes/js/xdate.js",
 		"/home/max/www/notes/js/backbone-localstorage.js",
-		"/home/max/www/services/myshows/MyShowsClient.php",
-		"/home/max/www/services/myshows/index.php",
-		"/home/max/Download/Browser/MyShowsClient.php",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/iesa.nowtask.ru/protected/models/Lead.php",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/iesa.nowtask.ru/protected/models/LeadTask.php",
-		"/home/max/www/notes/notes (копия).json",
-		"/home/max/www/test/art/app.js",
-		"/home/max/www/test/art/backbone-0.5.3.js",
-		"/home/max/www/test/art/backbone-localstorage.js",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/balvardo.ru/test.php",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/balvardo.ru/twitter.class.php"
+		"/home/max/www/services/myshows/MyShowsClient.php"
 	],
 	"find":
 	{
@@ -361,6 +277,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console.log",
+			"create",
+			"create:",
+			"create",
+			"'sync'",
+			"removeTask",
+			"urlError",
+			"destroy",
+			"save:",
+			"save",
+			"site",
+			"change",
+			"nextModel",
+			"create",
+			"callbacks",
+			"defe",
+			"callbacks",
+			"length",
+			"('",
+			"_prepareModel",
+			"push",
+			"this.tasks",
+			"tasks",
+			"tags",
+			"setAttribute",
+			"fetch",
+			"that",
 			"initFlatMap",
 			"id",
 			"showScriptName",
@@ -461,34 +404,7 @@
 			"url",
 			"isNew",
 			"error",
-			"Backbone.sync",
-			"getUrl",
-			"xhr",
-			"wrapError",
-			"sync",
-			"destroy",
-			"app.log",
-			"collection",
-			"sync",
-			"listReload",
-			"post:save",
-			"list:reload",
-			"page:load",
-			"app.classes.notes",
-			"app.classes.note",
-			"app.classes.Note",
-			"list:reload",
-			"post:save",
-			"load:res",
-			"app.models",
-			"post:save",
-			"list:reload",
-			"page:load",
-			"Backbone.sync",
-			"on: ",
-			"on:",
-			"live",
-			"# "
+			"Backbone.sync"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -543,50 +459,36 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "protected/views/site/pages/tasks.php",
+					"file": "js/backbone.js",
 					"settings":
 					{
-						"buffer_size": 3229,
+						"buffer_size": 53155,
 						"regions":
 						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										14305,
+										14305
+									]
+								],
+								"scope": "bookmarks"
+							}
 						},
 						"selection":
 						[
 							[
-								608,
-								608
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/max/www/work/glavmosstoy/markup/js/svg.js",
-					"settings":
-					{
-						"buffer_size": 363554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20213,
-								20213
+								27699,
+								27699
 							]
 						],
 						"settings":
@@ -596,162 +498,65 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6304.0,
+						"translation.y": 11787.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "protected/views/site/pages/tasks.php",
+					"settings":
+					{
+						"buffer_size": 4114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3957,
+								3957
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1613.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/max/www/work/glavmosstoy/markup/css/main.css",
-					"settings":
-					{
-						"buffer_size": 87461,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								67034,
-								67034
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 48779.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/max/www/work/glavmosstoy/markup/js/object.js",
-					"settings":
-					{
-						"buffer_size": 20568,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10805,
-								10805
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6876.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/max/www/work/glavmosstoy/markup/images/fish/centr_map_big.svg",
-					"settings":
-					{
-						"buffer_size": 361424,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								204,
-								204
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/max/www/work/glavmosstoy/markup/object.html",
-					"settings":
-					{
-						"buffer_size": 74790,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								751,
-								751
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/max/www/libs/aehlke-tag-it-d64a794/examples.html",
-					"settings":
-					{
-						"buffer_size": 9958,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6497,
-								6497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 112.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "js/tasks.js",
 					"settings":
 					{
-						"buffer_size": 5104,
+						"buffer_size": 6897,
 						"regions":
 						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										3933,
+										3933
+									]
+								],
+								"scope": "bookmarks"
+							}
 						},
 						"selection":
 						[
 							[
-								1033,
-								1033
+								868,
+								868
 							]
 						],
 						"settings":
@@ -759,223 +564,6 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false,
 							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 214.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "protected/controllers/ApiController.php",
-					"settings":
-					{
-						"buffer_size": 9689,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5869,
-								5869
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 528.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php",
-					"settings":
-					{
-						"buffer_size": 30919,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18045,
-								18045
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7883.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/web/CWebApplication.php",
-					"settings":
-					{
-						"buffer_size": 17183,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1096,
-								1096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "/home/max/www/libs/yii-1.1.10.r3566/framework/web/CUrlManager.php",
-					"settings":
-					{
-						"buffer_size": 28203,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15460,
-								15460
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6864.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "protected/config/main.php",
-					"settings":
-					{
-						"buffer_size": 2365,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1109,
-								1109
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "protected/migrations/m120415_172425_tags.php",
-					"settings":
-					{
-						"buffer_size": 352,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								194,
-								194
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "js/backbone-relational.js",
-					"settings":
-					{
-						"buffer_size": 45647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "protected/models/Task.php",
-					"settings":
-					{
-						"buffer_size": 2804,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2772,
-								2772
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
