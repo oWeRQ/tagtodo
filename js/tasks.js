@@ -1,5 +1,49 @@
 $(function(){
 
+	var App = {
+		router: null,
+		tags: null,
+		tasks: null,
+		tagsView: null,
+		tasksView: null,
+		init: function(){
+			App.tags = new Tags;
+			App.tasks = new Tasks;
+
+			App.tagsView = new TagsView({
+				el: $("#tagsList")
+			});
+			App.tasksView = new TasksView({
+				el: $("#tasks")
+			});
+
+			App.tags.fetch({
+				success: function(){
+					App.tasks.fetch({
+						success: function(){
+							App.onload();
+						}
+					});
+				}
+			});
+		},
+		onload: function(){
+			App.router = new AppRouter();
+			Backbone.history.start();
+		}
+	};
+
+	var AppRouter = Backbone.Router.extend({
+		routes: {
+			'tag/:tagName': 'tag',
+		},
+		tag: function(tagName) {
+			var tag = App.tags.where({name: tagName})[0];
+			if (tag)
+				App.tasksView.filterByTag(tag);
+		}
+	});
+
 	var Task = Backbone.Model.extend({
 		idAttribute: 'id',
 		defaults: {
@@ -68,13 +112,13 @@ $(function(){
 				if (name.length === 0)
 					return;
 
-				var tag = tags.where({name: name})[0];
+				var tag = App.tags.where({name: name})[0];
 
 				if (tag) {
 					newTags.add(tag);
 				} else {
 					createTagsTotal++;
-					tags.create({name: name, tasks: []}, {
+					App.tags.create({name: name, tasks: []}, {
 						wait: true,
 						success: function(tag){
 							newTags.add(tag);
@@ -186,7 +230,10 @@ $(function(){
 				wait: true
 			});
 
-			this.body.val('');
+			if (App.tasksView.currentTag)
+				this.body.val('#'+App.tasksView.currentTag.get('name')+' ');
+			else
+				this.body.val('');
 		}
 	});
 
@@ -194,18 +241,19 @@ $(function(){
 		events: {
 			'click .showAll': 'showAll'
 		},
+		currentTag: null,
 		initialize: function(){
 			this.breadcrumbs = {};
 			this.breadcrumbs.showAll = this.$('.showAll');
 			this.breadcrumbs.tag = this.$('.tag').hide();
 			this.tasksList = this.$('ul.tasks');
 
-			tasks.on('add', this.addOne, this);
-			tasks.on('reset', this.addAll, this);
+			App.tasks.on('add', this.addOne, this);
+			App.tasks.on('reset', this.addAll, this);
 
 			this.newTask = new TaskFormView({
 				el: this.$('form.newTask'),
-				collection: tasks
+				collection: App.tasks
 			});
 		},
 		addOne: function(task) {
@@ -214,18 +262,23 @@ $(function(){
 		},
 		addAll: function() {
 			this.tasksList.empty();
-			tasks.each(this.addOne, this);
+			App.tasks.each(this.addOne, this);
 		},
 		showAll: function() {
-			tasks.each(function(task){
+			this.currentTag = null;
+
+			App.tasks.each(function(task){
 				task.view.$el.show();
 			}, this);
 
 			this.breadcrumbs.tag.hide();
 
-			tagsView.$el.children('li').removeClass('active');
+			App.tagsView.$el.children('li').removeClass('active');
+			App.router.navigate('');
 		},
 		filterByTag: function(tag) {
+			this.currentTag = tag;
+
 			var ids = tag.get('tasks'),
 				hashTag = '#'+tag.get('name'),
 				body = this.newTask.body;
@@ -235,7 +288,7 @@ $(function(){
 			else
 				body.val(body.val().replace(/#([^\s]+)/, hashTag));
 
-			tasks.each(function(task){
+			App.tasks.each(function(task){
 				task.view.$el.toggle(_.indexOf(ids, task.id) !== -1);
 			}, this);
 
@@ -263,38 +316,25 @@ $(function(){
 		},
 		filter: function(){
 			this.$el.addClass('active').siblings().removeClass('active');
-			tasksView.filterByTag(this.model);
+			App.tasksView.filterByTag(this.model);
+			App.router.navigate('tag/'+this.model.get('name'));
 		}
 	});
 	
 	var TagsView = Backbone.View.extend({
 		initialize: function(){
-			tags.on('add', this.addOne, this);
-			tags.on('reset', this.addAll, this);
+			App.tags.on('add', this.addOne, this);
+			App.tags.on('reset', this.addAll, this);
 		},
 		addOne: function(tag) {
 			var view = new TagView({model: tag});
 			this.$el.append(view.render().el);
 		},
 		addAll: function() {
-			tags.each(this.addOne, this);
+			App.tags.each(this.addOne, this);
 		}
 	});
 
-	var tags = new Tags;
-	var tasks = new Tasks;
-
-	var tagsView = new TagsView({
-		el: $("#tagsList")
-	});
-	var tasksView = new TasksView({
-		el: $("#tasks")
-	});
-
-	tags.fetch({
-		success: function(collection, resp){
-			tasks.fetch();
-		}
-	});
+	App.init();
 
 });
