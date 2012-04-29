@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"new",
+				"newTask"
+			],
+			[
 				"tasks",
 				"TasksView"
 			],
@@ -52,26 +56,58 @@
 	"buffers":
 	[
 		{
-			"file": "js/backbone.js",
+			"file": "js/views/tag.js",
 			"settings":
 			{
-				"buffer_size": 53155,
+				"buffer_size": 813,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "protected/views/site/pages/tasks.php",
+			"file": "js/views/tags.js",
 			"settings":
 			{
-				"buffer_size": 4114,
+				"buffer_size": 455,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/tasks.js",
+			"file": "js/views/task.js",
 			"settings":
 			{
-				"buffer_size": 6897,
+				"buffer_size": 1139,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/views/taskForm.js",
+			"settings":
+			{
+				"buffer_size": 774,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/views/tasks.js",
+			"settings":
+			{
+				"buffer_size": 1539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/models/task.js",
+			"settings":
+			{
+				"buffer_size": 2012,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 246,
 				"line_ending": "Unix"
 			}
 		}
@@ -79,9 +115,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 103.0,
+		"height": 218.0,
 		"selected_items":
 		[
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
 			[
 				"disc",
 				"Package Control: Discover Packages"
@@ -132,6 +176,24 @@
 	},
 	"file_history":
 	[
+		"/home/max/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/max/www/tagtodo/js/backbone.js",
+		"/home/max/www/tagtodo/protected/views/site/pages/tasks.php",
+		"/home/max/www/tagtodo/css/tasks.css",
+		"/home/max/www/todomvc/reference-examples/vanillajs/js/todo.js",
+		"/home/max/www/notes/js/notes.js",
+		"/home/max/www/tagtodo/js/tasks.js",
+		"/home/max/Desktop/tasks.js",
+		"/home/max/www/todomvc/architecture-examples/backbone/js/todos.js",
+		"/home/max/www/todomvc/architecture-examples/extjs/index.html",
+		"/home/max/www/todomvc/dependency-examples/backbone_require/js/views/todos.js",
+		"/home/max/www/todomvc/dependency-examples/backbone_require/js/main.js",
+		"/home/max/www/todomvc/dependency-examples/backbone_require/js/models/todo.js",
+		"/home/max/www/todomvc/dependency-examples/backbone_require/index.html",
+		"/home/max/www/todomvc/architecture-examples/backbone/index.html",
+		"/home/max/www/todomvc/architecture-examples/closure/js/todomvc/view/ToDoItemControl.js",
+		"/home/max/www/todomvc/architecture-examples/closure/js/todomvc/model/ToDoItem.js",
+		"/home/max/www/todomvc/architecture-examples/closure/js/main.js",
 		"/home/max/www/tagtodo/protected/controllers/ApiController.php",
 		"/home/max/www/tagtodo/protected/models/Task.php",
 		"/home/max/www/maincinema/protected/components/AdvancedRelationsBehavior.php",
@@ -144,7 +206,6 @@
 		"/home/max/www/libs/yii-1.1.10.r3566/framework/base/CApplication.php",
 		"/home/max/www/tagtodo/js/backbone-relational.js",
 		"/home/max/www/libs/yii-1.1.10.r3566/demos/blog/protected/data/schema.mysql.sql",
-		"/home/max/www/tagtodo/js/backbone.js",
 		"/home/max/www/libs/yii-1.1.10.r3566/framework/db/ar/CActiveRecord.php",
 		"/home/max/www/mokocrm/protected/controllers/LeadController.php",
 		"/home/max/www/tagtodo/protected/migrations/m120415_172425_tags.php",
@@ -156,7 +217,6 @@
 		"/home/max/www/work/glavmosstoy/markup/js/object.js",
 		"/home/max/www/tagtodo/js/tag-it.js",
 		"/home/max/Download/Browser/jmechner-Prince-of-Persia-Apple-II-e942336/01 POP Source/Source/AUTO.S",
-		"/home/max/www/tagtodo/js/tasks.js",
 		"/home/max/www/tagtodo/protected/controllers/TaskController.php",
 		"/home/max/www/work/glavmosstoy/markup/js/main.js",
 		"/home/max/www/tagtodo/protected/migrations/m120415_172416_tasks.php",
@@ -188,7 +248,6 @@
 		"/media/Neptune/Backup/git/www/.git/refs/heads/master",
 		"/media/Neptune/Backup/git/www/.git/refs/remotes/origin/HEAD",
 		"/media/Neptune/Backup/git/www/.git/refs/remotes/origin/master",
-		"/home/max/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/max/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/www/mojito/examples/getting-started-guide/part1/hello/index.js",
 		"/home/www/mojito/examples/getting-started-guide/part2/basic_yql/routes.json",
@@ -237,7 +296,6 @@
 		"/home/max/www/index.php",
 		"/home/max/.gvfs/SFTP на timeweb/var/www/iesa.nowtask.ru/protected/views/event/_view.php",
 		"/home/max/www/services/flickr/index.html",
-		"/home/max/www/notes/js/notes.js",
 		"/home/max/www/notes/notes.php",
 		"/home/max/www/notes/js/backbone.js",
 		"/home/max/www/notes/notes.json",
@@ -245,21 +303,7 @@
 		"/home/max/www/notes/.htaccess",
 		"/home/max/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 		"/home/max/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
-		"/home/max/www/notes/index.html",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/iesa.nowtask.ru/protected/views/lead/_tasks.php",
-		"/home/max/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
-		"/home/max/www/notes/css/styles.css",
-		"/home/max/www/test/closetags/close.php",
-		"/home/max/www/test/closetags/test2.html",
-		"/home/max/.gvfs/SFTP на timeweb/var/www/snovaprazdnik.ru/modules/cms/helpers/MY_html.php",
-		"/home/max/www/emaker/modules/cms/helpers/MY_html.php",
-		"/home/max/www/test/closetags/test",
-		"/home/max/www/test/closetags/test.html",
-		"/home/max/www/emaker/modules/cms/helpers/cms.php",
-		"/home/max/.hgrc",
-		"/home/max/www/notes/js/xdate.js",
-		"/home/max/www/notes/js/backbone-localstorage.js",
-		"/home/max/www/services/myshows/MyShowsClient.php"
+		"/home/max/www/notes/index.html"
 	],
 	"find":
 	{
@@ -277,6 +321,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'sync'",
+			"sync",
+			"create",
+			"save",
+			".view",
+			"onload",
+			"getTags",
+			"get:",
+			"getTags",
+			"addTask",
+			"removeTask",
+			"addTask",
+			"App.router.navigate",
+			"Backbone.sync",
+			"fetch",
+			"tagsView",
+			"tasksView",
+			"\\stasks\\.",
+			"\\stags\\.",
+			"\\stags.",
+			"tags.",
+			"^tags",
+			"^tags[.]",
+			"^tags\\.",
+			"tags",
+			"createTagsSuccess",
+			"$el.find",
 			"console.log",
 			"create",
 			"create:",
@@ -377,34 +448,7 @@
 			"190, 190",
 			"boxShadowRadius",
 			"background",
-			"shadow",
-			"\": {},",
-			"save",
-			"create",
-			"save",
-			"localSync",
-			"tags_count",
-			"add",
-			"destroy",
-			"create",
-			"undef",
-			"_byId",
-			"time()",
-			" type=\"text/javascript\"",
-			"destroy",
-			"success",
-			"_configure",
-			"Backbone.View",
-			"_createObjectURL",
-			"previewFileTypes",
-			"bind :",
-			"bind",
-			"bindReady",
-			"ready",
-			"url",
-			"isNew",
-			"error",
-			"Backbone.sync"
+			"shadow"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -412,6 +456,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$",
 			"}",
 			"{",
 			"BoxStyleImage",
@@ -459,111 +504,190 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/backbone.js",
+					"file": "js/views/tag.js",
 					"settings":
 					{
-						"buffer_size": 53155,
+						"buffer_size": 813,
 						"regions":
 						{
-							"bookmarks":
-							{
-								"flags": 144,
-								"icon": "bookmark",
-								"regions":
-								[
-									[
-										14305,
-										14305
-									]
-								],
-								"scope": "bookmarks"
-							}
 						},
 						"selection":
 						[
 							[
-								27699,
-								27699
+								8,
+								8
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11787.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "protected/views/site/pages/tasks.php",
+					"file": "js/views/tags.js",
 					"settings":
 					{
-						"buffer_size": 4114,
+						"buffer_size": 455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3957,
-								3957
+								428,
+								428
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1613.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "js/tasks.js",
+					"file": "js/views/task.js",
 					"settings":
 					{
-						"buffer_size": 6897,
+						"buffer_size": 1139,
 						"regions":
 						{
-							"bookmarks":
-							{
-								"flags": 144,
-								"icon": "bookmark",
-								"regions":
-								[
-									[
-										3933,
-										3933
-									]
-								],
-								"scope": "bookmarks"
-							}
 						},
 						"selection":
 						[
 							[
-								868,
-								868
+								42,
+								42
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/views/taskForm.js",
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/views/tasks.js",
+					"settings":
+					{
+						"buffer_size": 1539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/models/task.js",
+					"settings":
+					{
+						"buffer_size": 2012,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/main.js",
+					"settings":
+					{
+						"buffer_size": 246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								158,
+								158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
