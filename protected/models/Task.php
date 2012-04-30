@@ -38,12 +38,12 @@ class Task extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('body', 'required'),
-			array('tags', 'safe'),
+			array('deadline, tags', 'safe'),
 			array('createdAt, updatedAt', 'numerical', 'integerOnly'=>true),
 			array('body', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, body, createdAt, updatedAt', 'safe', 'on'=>'search'),
+			array('id, body, createdAt, updatedAt, deadline', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -2,25 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "/home/max/www/mokocrm"
-		},
-		{
 			"path": "/home/max/www/tagtodo"
 		},
 		{
 			"path": "/home/max/www/libs/yii-1.1.10.r3566"
-		},
-		{
-			"path": "/home/max/www/maincinema"
-		},
-		{
-			"path": "/home/max/www/libs"
-		},
-		{
-			"path": "/home/max/www/todomvc"
-		},
-		{
-			"path": "/home/max/www/notes"
 		}
 	]
 }

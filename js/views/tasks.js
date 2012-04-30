@@ -2,18 +2,14 @@ define([
 	'underscore',
 	'backbone',
 	'app',
+	'models/tag',
 	'views/task',
 	'views/taskForm'
-], function(_, Backbone, App, TaskView, TaskFormView) {
+], function(_, Backbone, App, Tag, TaskView, TaskFormView) {
 	var TasksView = Backbone.View.extend({
-		events: {
-			'click .showAll': 'showAll'
-		},
-		currentTag: null,
+		events: {},
+		currentTags: [],
 		initialize: function(){
-			this.breadcrumbs = {};
-			this.breadcrumbs.showAll = this.$('.showAll');
-			this.breadcrumbs.tag = this.$('.tag').hide();
 			this.tasksList = this.$('ul.tasks');
 
 			App.tasks.on('add', this.addOne, this);
@@ -32,34 +28,67 @@ define([
 			App.tasks.each(this.addOne, this);
 		},
 		showAll: function() {
-			this.currentTag = null;
+			this.currentTags = [];
+
+			App.tags.each(function(tag){
+				tag.view.setActive(false);
+			});
 
 			App.tasks.each(function(task){
 				task.view.$el.show();
 			}, this);
 
-			this.breadcrumbs.tag.hide();
-
-			App.tagsView.$el.children('li').removeClass('active');
 			App.router.navigate('');
+			this.newTask.body.attr('placeholder', '');
 		},
-		filterByTag: function(tag) {
-			this.currentTag = tag;
+		filterByDate: function(date) {
+			App.tasks.each(function(task){
+				task.view.$el.toggle(task.get('deadline') === date);
+			}, this);
 
-			var ids = tag.get('tasks'),
-				hashTag = '#'+tag.get('name'),
-				body = this.newTask.body;
+			App.router.navigate('date/'+date);
+		},
+		filterByTags: function(tags) {
+			this.currentTags = _.compact(_.map(tags, function(tag){
+				if (!(tag instanceof Tag)) {
+					if (_.isString(tag))
+						tag = App.tags.where({name: decodeURIComponent(tag)})[0];
+					else
+						return null;
+				}
 
-			if (body.val() === '')
-				body.val(hashTag+' ');
-			else
-				body.val(body.val().replace(/#([^\s]+)/, hashTag));
+				if (tag)
+					tag.view.setActive(true);
+
+				return tag;
+			}));
+
+			if (this.currentTags.length === 0)
+				return this.showAll();
+
+			var ids = _.intersection.apply(
+				this,
+				_.map(this.currentTags, function(tag){
+					return tag ? tag.get('tasks') : [];
+				})
+			);
 
 			App.tasks.each(function(task){
 				task.view.$el.toggle(_.indexOf(ids, task.id) !== -1);
 			}, this);
 
-			this.breadcrumbs.tag.text('#'+tag.get('name')).show();
+			var currentTagNames = _.map(this.currentTags, function(tag){
+				return tag.get('name');
+			});
+
+			App.router.navigate('tags/'+currentTagNames.join('/'));
+			this.newTask.body.attr('placeholder', '#'+currentTagNames.join(' #')+' ');
+		},
+		addFilterTags: function(tags) {
+			this.filterByTags(_.union(this.currentTags, tags));
+		},
+		removeFilterTag: function(tag) {
+			this.filterByTags(_.without(this.currentTags, tag));
 		}
 	});
 	return TasksView;

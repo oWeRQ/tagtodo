@@ -8,9 +8,11 @@ define([
 		template: _.template(tagTemplate),
 		tagName: 'li',
 		events: {
-			'click': 'filter'
+			'click': 'toggle'
 		},
+		active: false,
 		initialize: function(){
+			this.model.view = this;
 			this.model.on('destroy', this.remove, this);
 			this.model.on('change:tasks', this.updateCount, this);
 		},
@@ -22,10 +24,17 @@ define([
 		updateCount: function(){
 			this.count.html(this.model.get('tasks').length);
 		},
-		filter: function(){
-			this.$el.addClass('active').siblings().removeClass('active');
-			App.tasksView.filterByTag(this.model);
-			App.router.navigate('tag/'+this.model.get('name'));
+		setActive: function(active){
+			this.active = active;
+			this.$el.toggleClass('active', active);
+		},
+		toggle: function(){
+			this.setActive(!this.active);
+
+			if (this.active)
+				App.tasksView.addFilterTags(this.model);
+			else
+				App.tasksView.removeFilterTag(this.model);
 		}
 	});
 	return TagView;

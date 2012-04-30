@@ -9,13 +9,15 @@ define([
 		tasks: null,
 		tagsView: null,
 		tasksView: null,
+		timelineView: null,
 		init: function(){
 			require([
 				'collections/tags',
 				'collections/tasks',
 				'views/tags',
-				'views/tasks'
-			], function(Tags, Tasks, TagsView, TasksView){
+				'views/tasks',
+				'views/timeline'
+			], function(Tags, Tasks, TagsView, TasksView, TimelineView){
 				App.tags = new Tags();
 				App.tasks = new Tasks();
 
@@ -24,6 +26,9 @@ define([
 				});
 				App.tasksView = new TasksView({
 					el: $("#tasks")
+				});
+				App.timelineView = new TimelineView({
+					el: $("#timeline")
 				});
 
 				$.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad);
@@ -37,14 +42,14 @@ define([
 
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			'tag/:tagName': 'tag'
+			'date/:date': 'date',
+			'tags/*tags': 'tags'
 		},
-		tag: function(tagName) {
-			var tag = App.tags.where({name: decodeURIComponent(tagName)})[0];
-			if (tag)
-				App.tasksView.filterByTag(tag);
-			else
-				App.router.navigate('');
+		date: function(date) {
+			App.tasksView.filterByDate(date);
+		},
+		tags: function(tags){
+			App.tasksView.filterByTags(tags.split('/'));
 		}
 	});
 

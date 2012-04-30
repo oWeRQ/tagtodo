@@ -9,7 +9,8 @@ define([
 		defaults: {
 			status: 0,
 			body: '',
-			tags: []
+			tags: [],
+			deadline: '0000-00-00'
 		},
 		view: null,
 		initialize: function(){

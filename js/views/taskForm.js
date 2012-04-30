@@ -5,36 +5,37 @@ define([
 ], function(_, Backbone, App) {
 	var TaskFormView = Backbone.View.extend({
 		events: {
+			'focus .body': 'focus',
+			'blur .body': 'blur',
 			'submit': 'submit'
 		},
 		initialize: function(){
 			this.body = this.$('.body');
+			this.deadline = this.$('.deadline');
+			this.deadline.datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
+		},
+		focus: function(){
+			if (this.body.val() === '')
+				this.body.val(this.body.attr('placeholder'));
+		},
+		blur: function(){
+			if (this.body.val() === this.body.attr('placeholder'))
+				this.body.val('');
 		},
 		submit: function(e){
 			e.preventDefault();
 
-			// var newTask = new Task();
-
-			// var createTask = function(){
-			// 	App.tasks.create(newTask);
-			// 	newTask.off('change:tags', createTask);
-			// };
-			// newTask.on('change:tags', createTask);
-
-			// newTask.set({
-			// 	body: this.body.val()
-			// });
-
 			App.tasks.create({
-				body: this.body.val()
+				body: this.body.val(),
+				deadline: this.deadline.val()
 			}, {
 				wait: true
 			});
 
-			if (App.tasksView.currentTag)
-				this.body.val('#'+App.tasksView.currentTag.get('name')+' ');
-			else
-				this.body.val('');
+			this.body.val(this.body.attr('placeholder'));
+			this.deadline.val('');
 		}
 	});
 	return TaskFormView;

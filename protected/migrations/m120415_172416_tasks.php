@@ -10,6 +10,7 @@ class m120415_172416_tasks extends CDbMigration
 			'body' => 'varchar(1024) NOT NULL',
 			'createdAt' => 'int(11) NOT NULL',
 			'updatedAt' => 'int(11) NOT NULL',
+			'deadline' => 'date NOT NULL',
 		));
 	}
 

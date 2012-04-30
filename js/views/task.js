@@ -10,6 +10,7 @@ define([
 		events: {
 			'change .status': 'changeStatus',
 			'change .body': 'changeBody',
+			'change .deadline': 'changeDeadline',
 			'click .delete': 'destroy'
 		},
 		initialize: function(){
@@ -20,6 +21,10 @@ define([
 			this.$el.html(this.template(this.model.toJSON()));
 			this.status = this.$('.status');
 			this.body = this.$('.body');
+			this.deadline = this.$('.deadline');
+			this.deadline.datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
 			return this;
 		},
 		changeStatus: function(){
@@ -36,6 +41,14 @@ define([
 			if (body != this.model.get('body')) {
 				this.model.set({
 					body: body
+				});
+			}
+		},
+		changeDeadline: function(){
+			var deadline = this.deadline.val();
+			if (deadline != this.model.get('deadline')) {
+				this.model.save({
+					deadline: deadline
 				});
 			}
 		},
