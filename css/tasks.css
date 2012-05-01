@@ -1,3 +1,18 @@
+#header {
+	border-top: none;
+}
+#page {
+	margin: 20px auto;
+	padding-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	box-shadow: 0 3px 6px #ddd;
+}
+#mainmenu,
+#footer {
+	display: none;
+}
+
 ul.tasks {
 	list-style: none;
 	margin: 0;
@@ -37,7 +52,6 @@ form.newTask {
 form.newTask .submit {
 	display: none;
 	vertical-align: bottom;
-	margin-left: -4px;
 	padding: 1px 2px;
 	color: #666;
 	background: #f9f9f9;
@@ -52,7 +66,8 @@ form.newTask input.body {
 form.newTask input.body:focus {
 	color: #3C3C3C;
 }
-form.newTask input.body:focus + .submit {
+form.newTask input.body:focus + input.deadline + .submit,
+form.newTask input.deadline:focus + .submit {
 	display: inline;
 }
 
@@ -61,18 +76,22 @@ form.newTask input.deadline {
 	font-size: 11px;
 	padding: 2px;
 	width: 10ex;
-	background: #f9f9f9;
+	text-align: center;
+	color: #666;
 	border: 1px solid #ddd;
 	border-radius: 3px;
+	box-shadow: inset 0 -3px 6px #f0f0f0;
 }
 ul.tasks input.deadline:focus,
 form.newTask input.deadline:focus {
 	color: #000;
 	background: #fff;
+	box-shadow: none;
 }
 
 #tasks {
 	overflow: auto;
+	margin-left: 180px;
 }
 
 #tagsList {
@@ -122,6 +141,8 @@ form.newTask input.deadline:focus {
 
 #timeline {
 	overflow: hidden;
+	margin-top: -20px;
+	margin-left: 180px;
 }
 #timeline ul {
 	margin: 0 0 40px;
@@ -155,13 +176,6 @@ form.newTask input.deadline:focus {
 	width: 100%;
 	background: #ccc;
 }
-#timeline li:hover .fill {
-	background: #ddd;
-}
-#timeline li.active .fill {
-	background: #0066CC;
-}
-
 #timeline li.weekend .total {
 	background: #fcfcfc;
 }
@@ -172,6 +186,18 @@ form.newTask input.deadline:focus {
 #timeline li.weekend .fill {
 	background: #ddd;
 }
+#timeline li:hover .fill {
+	background: #ddd;
+}
+#timeline li.active .total {
+	background: #DFF6F6;
+}
+#timeline li.active .fill {
+	background: #0066CC;
+}
+#timeline li.active .day {
+	border-bottom: 2px solid #0066CC;
+}
 
 .timelineMonth {
 	width: 660px;
@@ -180,7 +206,6 @@ form.newTask input.deadline:focus {
 .timelineMonth .prevMonth,
 .timelineMonth .nextMonth {
 	padding: 2px 3px;
-	font-weight: bold;
 	color: #0066CC;
 	cursor: pointer;
 }
@@ -188,6 +213,10 @@ form.newTask input.deadline:focus {
 .timelineMonth .nextMonth:hover {
 	background: #f3f3f3;
 	border-radius: 3px;
+}
+.timelineMonth .currentMonth {
+	display: inline-block;
+	width: 94px;
 }
 .timelineMonth .currentMonth:hover {
 	color: #0066CC;

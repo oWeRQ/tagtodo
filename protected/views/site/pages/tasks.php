@@ -15,7 +15,7 @@ Yii::app()->clientScript->registerScript('baseUrl',
 <div id="timeline">
 	<div class="timelineMonth">
 		<span class="prevMonth">&larr;</span>
-		<span class="currentMonth">Апрель 2012</span>
+		<span class="currentMonth"></span>
 		<span class="nextMonth">&rarr;</span>
 	</div>
 	<ul class="timelineList"></ul>

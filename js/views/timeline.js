@@ -17,7 +17,7 @@ define([
 		initialize: function(){
 			var date = new Date();
 			this.year = date.getFullYear();
-			this.month = date.getMonth();
+			this.month = date.getMonth()+1;
 
 			this.currentMonth = this.$('.currentMonth');
 			this.timelineList = this.$('.timelineList');
@@ -26,15 +26,18 @@ define([
 			App.tasks.on('change:deadline', this.render, this);
 		},
 		render: function() {
+			var currentDate = App.tasksView.currentDate;
 			var date = new Date(this.year, this.month, 0);
 			var dateAtom;
 			var daysInMonth = date.getDate();
-			var countByDay = App.tasks.countByDay();
+			
+			var tagsTaskIds = App.tasksView.getCurrentTagsTaskIds();
+			var countByDay = App.tasks.countByDay(tagsTaskIds);
 			var maxByDay = _.reduce(countByDay, function(memo, num){
 				return memo > num ? memo : num;
 			}, 0);
 
-			this.currentMonth.html($.datepicker.formatDate('MM yy', date));
+			this.currentMonth.html($.datepicker.formatDate('MM, yy', date));
 			this.timelineList.empty();
 			for (var day=1; day <= daysInMonth; day++) {
 				date = new Date(this.year, this.month-1, day);
@@ -50,6 +53,9 @@ define([
 
 				if (dayCount)
 					li.attr('title', 'Tasks: '+dayCount);
+
+				if (dateAtom === currentDate)
+					li.addClass('active');
 				
 				li.toggleClass('weekend', isWeekend).appendTo(this.timelineList);
 			}
@@ -58,7 +64,7 @@ define([
 		setCurrentMonth: function(){
 			var date = new Date();
 			this.year = date.getFullYear();
-			this.month = date.getMonth();
+			this.month = date.getMonth()+1;
 			this.render();
 		},
 		prevMonth: function(){
@@ -80,10 +86,14 @@ define([
 			var date = li.data('date');
 			if (li.hasClass('active')) {
 				li.removeClass('active');
-				App.tasksView.showAll();
+				App.tasksView.setFilterDate(null);
+				App.tasksView.applyFilter();
+				//App.tasksView.showAll();
 			} else {
 				li.addClass('active').siblings().removeClass('active');
-				App.tasksView.filterByDate(date);
+				App.tasksView.setFilterDate(date);
+				App.tasksView.applyFilter();
+				//App.tasksView.filterByDate(date);
 			}
 		}
 	});

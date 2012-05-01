@@ -35,6 +35,8 @@ define([
 				App.tasksView.addFilterTags(this.model);
 			else
 				App.tasksView.removeFilterTag(this.model);
+
+			App.tasksView.applyFilter();
 		}
 	});
 	return TagView;

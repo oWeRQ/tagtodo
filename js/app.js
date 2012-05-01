@@ -30,7 +30,7 @@ define([
 				App.timelineView = new TimelineView({
 					el: $("#timeline")
 				});
-
+				
 				$.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad);
 			});
 		},
@@ -43,13 +43,21 @@ define([
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'date/:date': 'date',
+			'date/:date/tags/*tags': 'dateTags',
 			'tags/*tags': 'tags'
 		},
 		date: function(date) {
-			App.tasksView.filterByDate(date);
+			App.tasksView.setFilterDate(date);
+			App.tasksView.applyFilter();
+		},
+		dateTags: function(date, tags) {
+			App.tasksView.setFilterDate(date);
+			App.tasksView.addFilterTags(tags.split('/'));
+			App.tasksView.applyFilter();
 		},
 		tags: function(tags){
-			App.tasksView.filterByTags(tags.split('/'));
+			App.tasksView.addFilterTags(tags.split('/'));
+			App.tasksView.applyFilter();
 		}
 	});
 

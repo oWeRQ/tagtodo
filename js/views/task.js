@@ -14,6 +14,7 @@ define([
 			'click .delete': 'destroy'
 		},
 		initialize: function(){
+			this.$el.data('id', this.model.id);
 			this.model.on('change:tags', this.changeTags, this);
 			this.model.on('destroy', this.remove, this);
 		},

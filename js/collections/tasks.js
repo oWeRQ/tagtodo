@@ -6,9 +6,12 @@ define([
 	var Tasks = Backbone.Collection.extend({
 		model: Task,
 		url: scriptUrl+'/api/tasks',
-		countByDay: function(){
+		countByDay: function(taskIds){
 			var count = {};
 			this.each(function(task){
+				if (taskIds.length && _.indexOf(taskIds, task.id) === -1)
+					return;
+
 				var deadline = task.get('deadline');
 
 				if (count[deadline])
