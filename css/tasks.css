@@ -1,6 +1,9 @@
 #header {
 	border-top: none;
 }
+#logo {
+	color: #ccc;
+}
 #page {
 	margin: 20px auto;
 	padding-bottom: 20px;
@@ -92,6 +95,10 @@ form.newTask input.deadline:focus {
 #tasks {
 	overflow: auto;
 	margin-left: 180px;
+}
+#tasks button.update {
+	margin-left: 25px;
+	margin-top: 20px;
 }
 
 #tagsList {
@@ -216,7 +223,7 @@ form.newTask input.deadline:focus {
 }
 .timelineMonth .currentMonth {
 	display: inline-block;
-	width: 94px;
+	width: 100px;
 }
 .timelineMonth .currentMonth:hover {
 	color: #0066CC;

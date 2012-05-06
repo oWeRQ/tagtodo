@@ -29,4 +29,6 @@ Yii::app()->clientScript->registerScript('baseUrl',
 		<input type="text" class="deadline" value="" placeholder="deadline">
 		<input type="submit" class="submit" value="&crarr;">
 	</form>
+
+	<button type="button" class="update">Update</button>
 </div>

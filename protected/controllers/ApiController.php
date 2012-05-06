@@ -24,14 +24,16 @@ class ApiController extends Controller
 	// Actions
 	public function actionList()
 	{
+		$condition = isset($_GET['ts']) ? 'createdAt > '.intval($_GET['ts']) : '';
+
 		// Get the respective model instance
 		switch($_GET['model'])
 		{
 			case 'tasks':
-				$models = Task::model()->findAll();
+				$models = Task::model()->findAll($condition);
 				break;
 			case 'tags':
-				$models = Tag::model()->findAll();
+				$models = Tag::model()->findAll($condition);
 				break;
 			case 'taskTags':
 				$models = TaskTags::model()->findAll();
@@ -46,8 +48,7 @@ class ApiController extends Controller
 		// Did we get some results?
 		if(empty($models)) {
 			// No
-			$this->_sendResponse(200, 
-					sprintf('No items where found for model <b>%s</b>', $_GET['model']) );
+			$this->_sendResponse(200, '[]');
 		} else {
 			// Prepare response
 			$rows = array();

@@ -7,10 +7,14 @@ define([
 	'views/taskForm'
 ], function(_, Backbone, App, Tag, TaskView, TaskFormView) {
 	var TasksView = Backbone.View.extend({
-		events: {},
+		events: {
+			'click .update': 'update'
+		},
+		updateTimestamp: 0,
 		currentDate: null,
 		currentTags: [],
 		initialize: function(){
+			this.updateTimestamp = Math.floor(new Date().getTime() / 1000);
 			this.tasksList = this.$('ul.tasks');
 
 			App.tasks.on('add', this.addOne, this);
@@ -27,6 +31,17 @@ define([
 		addAll: function() {
 			this.tasksList.empty();
 			App.tasks.each(this.addOne, this);
+		},
+		update: function(){
+			App.tags.fetch({
+				add: true,
+				url: App.tags.url+'?ts='+this.updateTimestamp
+			});
+			App.tasks.fetch({
+				add: true,
+				url: App.tasks.url+'?ts='+this.updateTimestamp
+			});
+			this.updateTimestamp = Math.floor(new Date().getTime() / 1000);
 		},
 		getCurrentTagsTaskIds: function(){
 			return this.currentTags.length ? _.intersection.apply(
