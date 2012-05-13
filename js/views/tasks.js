@@ -7,18 +7,16 @@ define([
 	'views/taskForm'
 ], function(_, Backbone, App, Tag, TaskView, TaskFormView) {
 	var TasksView = Backbone.View.extend({
-		events: {
-			'click .update': 'update'
-		},
-		updateTimestamp: 0,
 		currentDate: null,
 		currentTags: [],
 		initialize: function(){
-			this.updateTimestamp = Math.floor(new Date().getTime() / 1000);
 			this.tasksList = this.$('ul.tasks');
 
 			App.tasks.on('add', this.addOne, this);
 			App.tasks.on('reset', this.addAll, this);
+			App.tasks.on('change', this.applyFilter, this);
+			App.tasks.on('add', this.applyFilter, this);
+			App.tasks.on('remove', this.applyFilter, this);
 
 			this.newTask = new TaskFormView({
 				el: this.$('form.newTask')
@@ -31,17 +29,6 @@ define([
 		addAll: function() {
 			this.tasksList.empty();
 			App.tasks.each(this.addOne, this);
-		},
-		update: function(){
-			App.tags.fetch({
-				add: true,
-				url: App.tags.url+'?ts='+this.updateTimestamp
-			});
-			App.tasks.fetch({
-				add: true,
-				url: App.tasks.url+'?ts='+this.updateTimestamp
-			});
-			this.updateTimestamp = Math.floor(new Date().getTime() / 1000);
 		},
 		getCurrentTagsTaskIds: function(){
 			return this.currentTags.length ? _.intersection.apply(
@@ -56,6 +43,9 @@ define([
 
 			if (this.currentDate) {
 				navigate.push('date/'+this.currentDate);
+				this.newTask.deadline.attr('placeholder', this.currentDate);
+			} else {
+				this.newTask.deadline.attr('placeholder', 'deadline');
 			}
 
 			if (this.currentTags.length) {
@@ -78,6 +68,8 @@ define([
 			var tagsTaskIds = this.getCurrentTagsTaskIds();
 
 			App.tasks.each(function(task){
+				if (!task.view)
+					return;
 				var isTagsTask = this.currentTags.length === 0 || _.indexOf(tagsTaskIds, task.id) !== -1;
 				var isDate = !this.currentDate || task.get('deadline') === this.currentDate;
 				task.view.$el.toggle(isTagsTask && isDate);

@@ -1,23 +1,30 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone'
-], function($, _, Backbone){
+	'backbone',
+	'text!templates/app.html'
+], function($, _, Backbone, AppTemplate){
 	var App = {
+		el: $('#tasksApp'),
+		template: _.template(AppTemplate),
 		router: null,
 		tags: null,
 		tasks: null,
 		tagsView: null,
 		tasksView: null,
 		timelineView: null,
+		statusBarView: null,
 		init: function(){
+			this.el.html(this.template());
+
 			require([
 				'collections/tags',
 				'collections/tasks',
 				'views/tags',
 				'views/tasks',
-				'views/timeline'
-			], function(Tags, Tasks, TagsView, TasksView, TimelineView){
+				'views/timeline',
+				'views/statusBar'
+			], function(Tags, Tasks, TagsView, TasksView, TimelineView, StatusBarView){
 				App.tags = new Tags();
 				App.tasks = new Tasks();
 
@@ -29,6 +36,9 @@ define([
 				});
 				App.timelineView = new TimelineView({
 					el: $("#timeline")
+				});
+				App.statusBarView = new StatusBarView({
+					el: $("#statusBar")
 				});
 				
 				$.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad);

@@ -1,0 +1,25 @@
+<div id="statusBar">
+	<span class="updateTime"></span>
+	<button type="button" class="update">Update</button>
+</div>
+
+<ul id="tagsList"></ul>
+
+<div id="timeline">
+	<div class="timelineMonth">
+		<span class="prevMonth">&larr;</span>
+		<span class="currentMonth"></span>
+		<span class="nextMonth">&rarr;</span>
+	</div>
+	<ul class="timelineList"></ul>
+</div>
+
+<div id="tasks">
+	<ul class="tasks"></ul>
+
+	<form class="newTask" action="/task" method="post">
+		<input type="text" class="body" name="body">
+		<input type="text" class="deadline" value="" placeholder="deadline">
+		<input type="submit" class="submit" value="&crarr;">
+	</form>
+</div>

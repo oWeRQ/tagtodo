@@ -11,7 +11,13 @@ define([
 		},
 		addOne: function(tag) {
 			var view = new TagView({model: tag});
-			this.$el.append(view.render().el);
+			var idx = _.indexOf(App.tags.models, tag);
+			if (idx <= 0)
+				this.$el.prepend(view.render().el);
+			else {
+				var prevTag = App.tags.models[idx-1].view.$el;
+				prevTag.after(view.render().el);
+			}
 		},
 		addAll: function() {
 			App.tags.each(this.addOne, this);
