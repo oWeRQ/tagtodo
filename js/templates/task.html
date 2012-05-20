@@ -1,4 +1,7 @@
 <input type="checkbox" class="status" <%=status==1?'checked':''%>>
-<input type="text" class="body <%=status==1?'done':''%>" value="<%=body%>">
+<span class="bodyArea">
+	<span class="bodyText <%=status==1?'done':''%>"><%=body%></span>
+	<input type="text" class="body" value="<%=body%>">
+</span>
 <input type="text" class="deadline" value="<%=(deadline!=='0000-00-00') ? deadline : ''%>" placeholder="deadline">
 <a href="#" class="delete">&times;</a>

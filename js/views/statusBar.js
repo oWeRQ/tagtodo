@@ -5,7 +5,7 @@ define([
 ], function(_, Backbone, App) {
 	var StatusBarView = Backbone.View.extend({
 		events: {
-			'click .update': 'update'
+			'click .updateTime': 'update'
 		},
 		updateTimestamp: 0,
 		initialize: function(){
