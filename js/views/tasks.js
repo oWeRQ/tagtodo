@@ -21,6 +21,26 @@ define([
 			this.newTask = new TaskFormView({
 				el: this.$('form.newTask')
 			});
+
+			this.tasksList.sortable({
+				axis: 'y',
+				handle: '.sortable-handle',
+				update: function(event, ui){
+					var task_id = ui.item.data('id'),
+						prev_id = ui.item.prev().data('id'),
+						next_id = ui.item.next().data('id');
+
+					var prev_weight = prev_id ? App.tasks.get(prev_id).getWeight() : 0,
+						next_weight = next_id ? App.tasks.get(next_id).getWeight() : prev_id+1024;
+
+					if (!prev_id && next_id)
+						prev_weight = next_weight-1024;
+
+					App.tasks.get(task_id).save({
+						weight: prev_weight+(next_weight-prev_weight)/2
+					});
+				}
+			});
 		},
 		addOne: function(task) {
 			task.view = new TaskView({model: task});

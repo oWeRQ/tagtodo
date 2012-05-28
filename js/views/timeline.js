@@ -27,6 +27,7 @@ define([
 		},
 		render: function() {
 			var currentDate = App.tasksView.currentDate;
+			var today = $.datepicker.formatDate($.datepicker.ATOM, new Date());
 			var date = new Date(this.year, this.month, 0);
 			var dateAtom;
 			var daysInMonth = date.getDate();
@@ -44,6 +45,7 @@ define([
 				dateAtom = $.datepicker.formatDate($.datepicker.ATOM, date);
 
 				var isWeekend = date.getDay()%6 === 0;
+				var isToday = dateAtom === today;
 				var dayCount = countByDay[dateAtom];
 
 				var li = $('<li>').data('date', dateAtom).html(this.dayTemplate({
@@ -57,7 +59,7 @@ define([
 				if (dateAtom === currentDate)
 					li.addClass('active');
 				
-				li.toggleClass('weekend', isWeekend).appendTo(this.timelineList);
+				li.toggleClass('weekend', isWeekend).toggleClass('today', isToday).appendTo(this.timelineList);
 			}
 			return this;
 		},

@@ -10,7 +10,8 @@ define([
 			status: 0,
 			body: '',
 			tags: [],
-			deadline: '0000-00-00'
+			deadline: '0000-00-00',
+			weight: 0
 		},
 		view: null,
 		initialize: function(){
@@ -18,6 +19,9 @@ define([
 			this.on('change:body', this.parseTags, this);
 			this.on('add', this.parseTags, this);
 			this.on('destroy', this.clearTags, this);
+		},
+		getWeight: function(){
+			return parseInt(this.get('weight'), 10) || this.id*1024;
 		},
 		getTags: function(){
 			return new Tags(_.map(this.get('tags'), App.tags.get, App.tags));

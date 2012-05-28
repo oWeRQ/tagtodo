@@ -1,9 +1,8 @@
 define([
-	'jquery',
 	'underscore',
 	'backbone',
 	'text!templates/app.html'
-], function($, _, Backbone, AppTemplate){
+], function(_, Backbone, AppTemplate){
 	var App = {
 		el: $('#tasksApp'),
 		template: _.template(AppTemplate),
