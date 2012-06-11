@@ -1,25 +1,41 @@
+html {
+	background: #EFEFEF;
+}
+
 body, input {
 	color: #555555;
 	font: 10pt Arial, Helvetica, sans-serif;
 }
 
-#header {
-	border-top: none;
-}
-#logo {
-	color: #ccc;
-}
-#page {
+#wrap {
 	position: relative;
-	margin: 20px auto;
-	padding-bottom: 20px;
+	margin: 20px auto 0;
+	padding: 20px;
+	width: 860px;
+	background: white;
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	box-shadow: 0 3px 6px #ddd;
 }
-#mainmenu,
+
+#header {
+	margin-bottom: 20px;
+}
+#logo {
+	font-size: 200%;
+	color: #ccc;
+}
+
 #footer {
-	display: none;
+	clear: both;
+	margin: 40px -20px -20px;
+	padding: 8px 20px;
+	font-size: 12px;
+	text-align: right;
+	color: #bbb;
+	background: #f6f6f6;
+	border-radius: 0 0 7px 7px;
+	border-top: 1px dotted #ddd;
 }
 
 #statusBar {
@@ -34,10 +50,16 @@ body, input {
 	color: #0066CC;
 }
 
+/* Tasks List
+==============================================================================*/
 ul.tasks {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+ul.tasks > li {
+	height: 25px;
+	background: white;
 }
 ul.tasks .sortable-handle {
 	display: inline-block;
@@ -60,7 +82,7 @@ ul.tasks .bodyText,
 ul.tasks input.body,
 form.newTask input.body {
 	padding: 3px 0;
-	width: 550px;
+	width: 545px;
 	border: none;
 	border-bottom: 1px solid #ddd;
 }
@@ -142,19 +164,20 @@ form.newTask input.deadline:focus {
 
 #tasks {
 	overflow: auto;
-	margin-left: 180px;
-	width: 730px;
+	margin-left: 170px;
 }
 #tasks button.update {
 	margin-left: 25px;
 	margin-top: 20px;
 }
 
+/* Tags List
+==============================================================================*/
 #tagsList {
 	float: left;
 	list-style: none;
 	margin-top: 4px;
-	margin-right: 50px;
+	margin-right: 35px;
 	padding: 0;
 	width: 130px;
 }
@@ -192,36 +215,35 @@ form.newTask input.deadline:focus {
 	font-weight: bold;
 }
 
+/* Timeline
+==============================================================================*/
 #timeline {
 	overflow: hidden;
-	margin-top: -20px;
-	margin-left: 180px;
-	width: 730px;
+	margin-left: 165px;
 }
 #timeline ul {
-	margin: 0 0 40px;
+	margin: 10px 0 20px;
 	padding: 0;
-	height: 50px;
-	/*line-height: 50px;*/
-}
-#timeline ul:before {
-	content: '';
-	display: inline-block;
-	height: 60px;
 }
 #timeline li {
+	position: relative;
 	display: inline-block;
-	vertical-align: bottom;
+	vertical-align: top;
 	text-align: center;
 	margin-right: 6px;
 	width: 16px;
-	height: 100%;
 	font-size: 12px;
 	cursor: pointer;
 }
+/*#timeline li.droppable-hover {
+	background: red;
+}*/
+#timeline li.droppable-hover .day {
+	border-bottom-color: red;
+}
 #timeline li .total {
 	position: relative;
-	height: 100%;
+	height: 50px;
 	background: #f3f3f3;
 }
 #timeline li .fill {
@@ -230,10 +252,15 @@ form.newTask input.deadline:focus {
 	width: 100%;
 	background: #ccc;
 }
+#timeline li .day {
+	border-bottom: 2px solid transparent;
+}
 #timeline li.weekend .total {
 	background: #fcfcfc;
 }
 #timeline li.weekend .day {
+	display: block;
+	height: 15px;
 	color: #ccc;
 }
 #timeline li.weekend .fill {
@@ -241,6 +268,11 @@ form.newTask input.deadline:focus {
 }
 #timeline li:hover .fill {
 	background: #ddd;
+}
+#timeline li .fillUndone,
+#timeline li:hover .fillUndone,
+#timeline li.weekend .fillUndone {
+	background: #d66;
 }
 #timeline li.active .total {
 	background: #DFF6F6;
@@ -251,7 +283,7 @@ form.newTask input.deadline:focus {
 #timeline li.active .day {
 	font-weight: bold;
 	color: black;
-	border-bottom: 2px solid #0066CC;
+	border-bottom-color: #0066CC;
 }
 #timeline li.today .fill {
 	background: #6c6;
@@ -265,7 +297,6 @@ form.newTask input.deadline:focus {
 }
 
 .timelineMonth {
-	width: 660px;
 	text-align: center;
 }
 .timelineMonth .prevMonth,

@@ -25,10 +25,15 @@ define [
 
 				deadline = task.get('deadline')
 
-				if count[deadline]
-					count[deadline]++
-				else
-					count[deadline]=1
+				if not count[deadline]
+					count[deadline] = 
+						total: 0
+						undone: 0
+
+				count[deadline].total++
+				
+				if not task.isDone()
+					count[deadline].undone++
 
 			count
 

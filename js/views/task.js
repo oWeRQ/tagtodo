@@ -19,6 +19,7 @@
         this.model.on('change:tags', this.changeTags, this);
         this.model.on('change:tags', this.updateBodyText, this);
         this.model.on('change:body', this.updateBodyText, this);
+        this.model.on('change:deadline', this.updateDeadlineText, this);
         return this.model.on('destroy', this.remove, this);
       },
       render: function() {
@@ -42,6 +43,9 @@
           return body = body.replace(hashTag, '<span class="tag" style="background:white;color:' + tag.getColor() + '">' + hashTag + '</span>');
         });
         return this.bodyText.html(body);
+      },
+      updateDeadlineText: function() {
+        return this.deadline.val(this.model.get('deadline'));
       },
       cancelBody: function() {
         this.bodyText.show();

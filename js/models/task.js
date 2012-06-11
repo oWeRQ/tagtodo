@@ -19,6 +19,9 @@
         this.on('add', this.parseTags, this);
         return this.on('destroy', this.clearTags, this);
       },
+      isDone: function() {
+        return parseInt(this.get('status')) !== 0;
+      },
       getWeight: function() {
         return parseInt(this.get('weight'), 10) || this.id * 1024;
       },

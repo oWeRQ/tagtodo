@@ -20,6 +20,9 @@ define [
 			this.on('add', this.parseTags, this)
 			this.on('destroy', this.clearTags, this)
 
+		isDone: ->
+			parseInt(this.get('status')) isnt 0
+
 		getWeight: ->
 			parseInt(this.get('weight'), 10) || this.id*1024
 

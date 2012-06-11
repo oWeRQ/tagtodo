@@ -20,6 +20,7 @@ define [
 			this.model.on('change:tags', this.changeTags, this)
 			this.model.on('change:tags', this.updateBodyText, this)
 			this.model.on('change:body', this.updateBodyText, this)
+			this.model.on('change:deadline', this.updateDeadlineText, this)
 			this.model.on('destroy', this.remove, this)
 
 		render: ->
@@ -40,6 +41,9 @@ define [
 				body = body.replace(hashTag, '<span class="tag" style="background:white;color:'+tag.getColor()+'">'+hashTag+'</span>')
 
 			this.bodyText.html(body)
+
+		updateDeadlineText: ->
+			this.deadline.val this.model.get('deadline')
 
 		cancelBody: ->
 			this.bodyText.show()

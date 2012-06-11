@@ -34,10 +34,11 @@ define [
 			tagsTaskIds = App.tasksView.getCurrentTagsTaskIds()
 			countByDay = App.tasks.countByDay(tagsTaskIds)
 			maxByDay = _.reduce countByDay, (memo, num) ->
-				if memo > num then memo else num
+				if memo > num.total then memo else num.total
 			, 0
 
 			this.currentMonth.html($.datepicker.formatDate('MM, yy', date))
+			this.timelineList.find('li').droppable 'destroy'
 			this.timelineList.empty()
 
 			for day in [1..daysInMonth]
@@ -46,19 +47,30 @@ define [
 
 				isWeekend = date.getDay()%6 is 0
 				isToday = dateAtom is today
-				dayCount = countByDay[dateAtom]
+
+				dayTotalTasks = countByDay[dateAtom]?.total
+				dayUndoneTasks = countByDay[dateAtom]?.undone
 
 				li = $('<li>').data('date', dateAtom).html this.dayTemplate
 					day: day
-					percent: (if dayCount then dayCount/maxByDay*100 else 0)
+					totalPercent: (if dayTotalTasks then dayTotalTasks/maxByDay*100 else 0)
+					undonePercent: (if dayUndoneTasks then dayUndoneTasks/maxByDay*100 else 0)
 
-				if dayCount
-					li.attr('title', 'Tasks: '+dayCount)
+				if dayTotalTasks
+					li.attr('title', 'Total: '+dayTotalTasks+' Undone: '+dayUndoneTasks)
 
 				if dateAtom is currentDate
 					li.addClass('active')
 				
 				li.toggleClass('weekend', isWeekend).toggleClass('today', isToday).appendTo(this.timelineList)
+
+				li.droppable
+					tolerance: 'pointer'
+					hoverClass: 'droppable-hover'
+					drop: (event, ui) ->
+						targetDate = $(event.target).data('date')
+						task = App.tasks.get(ui.draggable.data('id'))
+						task.save deadline: targetDate
 
 			this
 

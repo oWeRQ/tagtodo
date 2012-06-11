@@ -22,7 +22,6 @@ define [
 				el: this.$('form.newTask')
 
 			this.tasksList.sortable
-				axis: 'y'
 				handle: '.sortable-handle'
 				update: (event, ui) ->
 					task_id = ui.item.data('id')

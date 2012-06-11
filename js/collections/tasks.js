@@ -27,10 +27,15 @@
             return;
           }
           deadline = task.get('deadline');
-          if (count[deadline]) {
-            return count[deadline]++;
-          } else {
-            return count[deadline] = 1;
+          if (!count[deadline]) {
+            count[deadline] = {
+              total: 0,
+              undone: 0
+            };
+          }
+          count[deadline].total++;
+          if (!task.isDone()) {
+            return count[deadline].undone++;
           }
         });
         return count;

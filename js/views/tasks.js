@@ -17,7 +17,6 @@
           el: this.$('form.newTask')
         });
         return this.tasksList.sortable({
-          axis: 'y',
           handle: '.sortable-handle',
           update: function(event, ui) {
             var next_id, next_weight, prev_id, prev_weight, task_id;

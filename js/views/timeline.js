@@ -24,7 +24,7 @@
         return App.tasks.on('change:deadline', this.render, this);
       },
       render: function() {
-        var countByDay, currentDate, date, dateAtom, day, dayCount, daysInMonth, isToday, isWeekend, li, maxByDay, tagsTaskIds, today, _i;
+        var countByDay, currentDate, date, dateAtom, day, dayTotalTasks, dayUndoneTasks, daysInMonth, isToday, isWeekend, li, maxByDay, tagsTaskIds, today, _i, _ref, _ref1;
         currentDate = App.tasksView.currentDate;
         today = $.datepicker.formatDate($.datepicker.ATOM, new Date());
         date = new Date(this.year, this.month, 0);
@@ -32,31 +32,46 @@
         tagsTaskIds = App.tasksView.getCurrentTagsTaskIds();
         countByDay = App.tasks.countByDay(tagsTaskIds);
         maxByDay = _.reduce(countByDay, function(memo, num) {
-          if (memo > num) {
+          if (memo > num.total) {
             return memo;
           } else {
-            return num;
+            return num.total;
           }
         }, 0);
         this.currentMonth.html($.datepicker.formatDate('MM, yy', date));
+        this.timelineList.find('li').droppable('destroy');
         this.timelineList.empty();
         for (day = _i = 1; 1 <= daysInMonth ? _i <= daysInMonth : _i >= daysInMonth; day = 1 <= daysInMonth ? ++_i : --_i) {
           date = new Date(this.year, this.month - 1, day);
           dateAtom = $.datepicker.formatDate($.datepicker.ATOM, date);
           isWeekend = date.getDay() % 6 === 0;
           isToday = dateAtom === today;
-          dayCount = countByDay[dateAtom];
+          dayTotalTasks = (_ref = countByDay[dateAtom]) != null ? _ref.total : void 0;
+          dayUndoneTasks = (_ref1 = countByDay[dateAtom]) != null ? _ref1.undone : void 0;
           li = $('<li>').data('date', dateAtom).html(this.dayTemplate({
             day: day,
-            percent: (dayCount ? dayCount / maxByDay * 100 : 0)
+            totalPercent: (dayTotalTasks ? dayTotalTasks / maxByDay * 100 : 0),
+            undonePercent: (dayUndoneTasks ? dayUndoneTasks / maxByDay * 100 : 0)
           }));
-          if (dayCount) {
-            li.attr('title', 'Tasks: ' + dayCount);
+          if (dayTotalTasks) {
+            li.attr('title', 'Total: ' + dayTotalTasks + ' Undone: ' + dayUndoneTasks);
           }
           if (dateAtom === currentDate) {
             li.addClass('active');
           }
           li.toggleClass('weekend', isWeekend).toggleClass('today', isToday).appendTo(this.timelineList);
+          li.droppable({
+            tolerance: 'pointer',
+            hoverClass: 'droppable-hover',
+            drop: function(event, ui) {
+              var targetDate, task;
+              targetDate = $(event.target).data('date');
+              task = App.tasks.get(ui.draggable.data('id'));
+              return task.save({
+                deadline: targetDate
+              });
+            }
+          });
         }
         return this;
       },
