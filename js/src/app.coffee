@@ -38,9 +38,10 @@ define [
 
 				App.statusBarView = new StatusBarView
 					el: $("#statusBar")
-
 				
-				$.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad)
+				#$.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad)
+				App.tags.fetch().done ->
+					App.tasks.fetch().done App.onLoad
 
 		onLoad: ->
 			App.router = new AppRouter()

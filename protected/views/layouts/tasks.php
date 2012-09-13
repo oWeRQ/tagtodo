@@ -15,7 +15,15 @@
 	<?=$content?>
 
 	<div id="footer">
-		Design by oWeRQ
+		<? if (!Yii::app()->user->isGuest): ?>
+			<div id="user">
+				<?=Yii::app()->user->name?>
+				(<?=CHtml::link('logout', array('site/logout'))?>)
+			</div>
+		<? endif ?>
+		<div id="design">
+			Design by oWeRQ
+		</div>
 	</div><!-- #footer -->
 
 </div><!-- #wrap -->

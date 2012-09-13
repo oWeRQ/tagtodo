@@ -2,6 +2,37 @@
 
 class SiteController extends Controller
 {
+	public $layout='//layouts/tasks';
+
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',
+				'actions'=>array('tasks'),
+				'users'=>array('@'),
+			),
+			array('deny',
+				'actions'=>array('tasks'),
+				'users'=>array('*'),
+			),
+		);
+	}
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -30,6 +61,14 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
+	}
+
+	public function actionTasks()
+	{
+		if (Yii::app()->user->name === 'admin')
+			$this->redirect(array('/user/admin'));
+
+		$this->render('tasks');
 	}
 
 	/**
@@ -71,6 +110,9 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+		if (!Yii::app()->user->isGuest)
+			$this->redirect(array('/'));
+
 		$model=new LoginForm;
 
 		// if it is ajax validation request

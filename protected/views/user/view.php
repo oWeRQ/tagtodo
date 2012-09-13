@@ -1,0 +1,66 @@
+<?php
+$this->breadcrumbs=array(
+	'Users'=>array('index'),
+	$model->id,
+);
+
+$this->menu=array(
+	array('label'=>'List User', 'url'=>array('index')),
+	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>'Update User', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Delete User', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage User', 'url'=>array('admin')),
+);
+?>
+
+<h1>View User #<?php echo $model->id; ?></h1>
+
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'id',
+		'email',
+		'first_name',
+		'last_name',
+		'provider',
+		'uid',
+	),
+)); ?>
+
+<h2>Tasks</h2>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'user-tasks-grid',
+	'dataProvider'=>new CArrayDataProvider($model->tasks),
+	'columns'=>array(
+		'id',
+		'weight',
+		'body',
+		'deadline',
+		array(
+			'name'=>'createdAt',
+			'value'=>'date("Y-m-d H:i", $data->createdAt)',
+		),
+		array(
+			'name'=>'updatedAt',
+			'value'=>'date("Y-m-d H:i", $data->updatedAt)',
+		),
+	),
+)); ?>
+
+<h2>Tags</h2>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'user-tags-grid',
+	'dataProvider'=>new CArrayDataProvider($model->tags),
+	'columns'=>array(
+		'id',
+		'name',
+		array(
+			'name'=>'createdAt',
+			'value'=>'date("Y-m-d H:i", $data->createdAt)',
+		),
+		array(
+			'name'=>'updatedAt',
+			'value'=>'date("Y-m-d H:i", $data->updatedAt)',
+		),
+	),
+)); ?>

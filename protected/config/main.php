@@ -22,8 +22,26 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'nuller',
-		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
+			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+		),
+		'opauth' => array(
+			'opauthParams' => array(
+				//'Security.salt' => 'LDFmiilYf8Fyw5W10rx4W1KsVrieQCnpBzzpTBWA5vJidQKDx8pMJbmw28R1C4m',
+				//'Security.salt' => '6c8d25530932e97d60e14ebbffddb095e4365525dbcd039fb2903f2f6be1e58',
+				'security_salt' => '6c8d25530932e97d60e14ebbffddb095e4365525dbcd039fb2903f2f6be1e58',
+				'Strategy' => array(
+					'Google' => array(
+						'client_id' => '258890327472.apps.googleusercontent.com',
+						'client_secret' => 'Xn3pm8FcqQ7JuasD2ZVptkJA',
+					),
+					'Twitter' => array(
+						'key' => 'yPqvNb2UNDpWXPOA9TyhAg',
+						'secret' => 'CeoUvXxjREYDEKQIsm91KDjsx06YVIDLTC37Emoemc',
+					),
+					'OpenID' => array(),
+				),
+			),
 		),
 	),
 
@@ -37,7 +55,10 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-				array('site/page', 'pattern'=>'', 'defaultParams'=>array('view'=>'tasks')),
+				array('site/tasks', 'pattern'=>''),
+				array('site/page', 'pattern'=>'about', 'defaultParams'=>array('view'=>'about')),
+				'login'=>'site/login',
+				'logout'=>'site/logout',
 				// REST patterns
 				array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
 				array('api/view', 'pattern'=>'api/<model:\w+>/<id:\w+>', 'verb'=>'GET'),
@@ -55,11 +76,13 @@ return array(
 			'username' => 'root',
 			'password' => 'nuller',
 			'charset' => 'utf8',
+			//'enableParamLogging' => true,
+			//'enableProfiling' => true,
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-            'errorAction'=>'site/error',
-        ),
+			'errorAction'=>'site/error',
+		),
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -73,6 +96,10 @@ return array(
 					'class'=>'CWebLogRoute',
 				),
 				*/
+				array( 
+					'class'=>'CProfileLogRoute', 
+					'report'=>'summary',
+				),
 			),
 		),
 	),

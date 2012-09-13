@@ -37,7 +37,9 @@ define [
 			body = this.model.get('body')
 
 			this.model.getTags().each (tag) ->
-				hashTag = '#'+tag.get('name')
+				tagName = tag.get('name')
+				return if tagName is ''
+				hashTag = '#'+tagName
 				body = body.replace(hashTag, '<span class="tag" style="background:white;color:'+tag.getColor()+'">'+hashTag+'</span>')
 
 			this.bodyText.html(body)

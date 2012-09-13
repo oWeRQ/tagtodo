@@ -30,7 +30,9 @@
           App.statusBarView = new StatusBarView({
             el: $("#statusBar")
           });
-          return $.when(App.tags.fetch(), App.tasks.fetch()).done(App.onLoad);
+          return App.tags.fetch().done(function() {
+            return App.tasks.fetch().done(App.onLoad);
+          });
         });
       },
       onLoad: function() {

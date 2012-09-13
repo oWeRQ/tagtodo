@@ -38,8 +38,12 @@
         var body;
         body = this.model.get('body');
         this.model.getTags().each(function(tag) {
-          var hashTag;
-          hashTag = '#' + tag.get('name');
+          var hashTag, tagName;
+          tagName = tag.get('name');
+          if (tagName === '') {
+            return;
+          }
+          hashTag = '#' + tagName;
           return body = body.replace(hashTag, '<span class="tag" style="background:white;color:' + tag.getColor() + '">' + hashTag + '</span>');
         });
         return this.bodyText.html(body);

@@ -112,6 +112,12 @@ class Task extends CActiveRecord
 		return parent::hasAttribute($name);
 	}
 
+	public function beforeSave()
+	{
+		$this->user_id = Yii::app()->user->id;
+		return parent::beforeSave();
+	}
+
 	public function afterSave()
 	{
 		TaskTags::model()->deleteAllByAttributes(array(

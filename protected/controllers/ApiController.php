@@ -24,16 +24,27 @@ class ApiController extends Controller
 	// Actions
 	public function actionList()
 	{
+		$user = User::model()->findByPk(Yii::app()->user->id);
+		if ($user === null) {
+			$this->_sendResponse(403, 'Forbidden');
+		}
+
 		$condition = isset($_GET['ts']) ? 'createdAt > '.intval($_GET['ts']) : '';
 
 		// Get the respective model instance
 		switch($_GET['model'])
 		{
 			case 'tasks':
-				$models = Task::model()->findAll($condition);
+				if ($condition)
+					$models = $user->tasks($condition);
+				else
+					$models = $user->tasks;
 				break;
 			case 'tags':
-				$models = Tag::model()->findAll($condition);
+				if ($condition)
+					$models = $user->tags($condition);
+				else
+					$models = $user->tags;
 				break;
 			case 'taskTags':
 				$models = TaskTags::model()->findAll();
@@ -172,6 +183,10 @@ class ApiController extends Controller
 			$this->_sendResponse(400, 
 					sprintf("Error: Didn't find any model <b>%s</b> with ID <b>%s</b>.",
 					$_GET['model'], $_GET['id']) );
+
+		if ($model->user_id !== Yii::app()->user->id) {
+			$this->_sendResponse(403, 'Forbidden');
+		}
 	 
 		// Try to assign PUT parameters to attributes
 		foreach($put_vars as $var=>$value) {
@@ -219,6 +234,10 @@ class ApiController extends Controller
 			$this->_sendResponse(400, 
 					sprintf("Error: Didn't find any model <b>%s</b> with ID <b>%s</b>.",
 					$_GET['model'], $_GET['id']) );
+
+		if ($model->user_id !== Yii::app()->user->id) {
+			$this->_sendResponse(403, 'Forbidden');
+		}
 	 
 		// Delete the model
 		$num = $model->delete();

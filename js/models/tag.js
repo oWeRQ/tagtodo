@@ -32,6 +32,7 @@
         count: 0,
         tasks: []
       },
+      color: null,
       initialize: function() {
         return this.on('destroy', this.clearTags, this);
       },
@@ -63,7 +64,8 @@
         }
       },
       getColor: function() {
-        return str2color(this.get('name'));
+        var _ref;
+        return (_ref = this.color) != null ? _ref : this.color = str2color(this.get('name'));
       }
     });
     return Tag;

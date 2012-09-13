@@ -27,6 +27,7 @@ define [
 			name: ''
 			count: 0
 			tasks: []
+		color: null
 
 		initialize: ->
 			this.on('destroy', this.clearTags, this)
@@ -53,6 +54,6 @@ define [
 				App.tasksView.applyFilter()
 
 		getColor: ->
-			str2color(this.get('name'))
+			@color ?= str2color @get 'name'
 
 	Tag
